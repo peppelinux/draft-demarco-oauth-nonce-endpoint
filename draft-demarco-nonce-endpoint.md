@@ -64,7 +64,7 @@ This document defines the nonce endpoint for the implementations based on OAuth 
 
 # Introduction
 
-This specification defines a method for a client to query an endpoint in a server, such as an OAuth 2.0 authorization server, to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once. 
+This specification defines a method for a client to query an endpoint in a server, such as an OAuth 2.0 authorization server, to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once.
 
 OAuth 2.0 deployments of this endpoint must use encryption for the issuance of the nonces to provide confidentiality of the information carried within the nonces, these can be, for instance: the origin of the nonce, time of issuance and expiration, audiences; allowing its secure use within infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
 
