@@ -143,7 +143,10 @@ Below are provided some non-normative examples, describing how a decrypted and J
   "iat": 1615908701,
   "exp": 1615995101,
   "source_endpoint": "https://issuer.example.com/nonce-endpoint",
-  "aud": ["https://service.example.com/endpoint", "https://another.example.com/cb"]
+  "aud": [
+    "https://service.example.com/endpoint",
+    "https://another.example.com/cb"
+  ]
 }
 ~~~~
 
