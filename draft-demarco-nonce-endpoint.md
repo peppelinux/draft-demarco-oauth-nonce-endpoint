@@ -38,15 +38,16 @@ informative:
 
 --- abstract
 
-This document defines the nonce endpoint for the implementations based on OAuth 2.0 [RFC6749], allowing a client to request and obtain server-generated opaque nonces from a server, such as an OAuth 2.0 Authorization Server.
+This document defines the nonce endpoint for the implementations based on OAuth 2.0 [RFC6749].
+The nonce endpoint allows a client to request and obtain server-generated opaque nonces from a server, such as an OAuth 2.0 Authorization Server.
 
 --- middle
 
 # Introduction
 
-This specification defines a method for a client to query an endpoint in a server, such as an OAuth 2.0 authorization server, to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once.
+This specification defines a method for a client to query a server, such as an OAuth 2.0 authorization server, to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once.
 
-OAuth 2.0 deployments of this endpoint must use encryption for the issuance of the nonces to provide confidentiality of the information carried within the nonces, these can be, for instance: the origin of the nonce, time of issuance and expiration, audiences; allowing its secure use within infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
+OAuth 2.0 deployments of this endpoint must use encryption for the issuance of the nonces to provide confidentiality of the information carried within the nonces. These can be, for instance: the origin of the nonce, the time of issuance and expiration and its audiences. An encrypted nonce value can be used in infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
 
 # Conventions and Definitions
 
