@@ -55,7 +55,8 @@ OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the 
 
 # Terminology
 
-- Nonce: random or pseudo-random number that is generated for a specific use, typically for cryptographic communication. It is used to protect against replay attacks by ensuring that a message or data cannot be reused or retransmitted, maliciously or otherwise. The term "nonce" stands for "number used once" and it must be unique within some scope.
+Nonce:
+:  A random or pseudo-random number that is generated for a specific use, typically for cryptographic communication. It is used to protect against replay attacks by ensuring that a message or data cannot be reused or retransmitted, maliciously or otherwise. The term "nonce" stands for "number used once" and it MUST be unique within some scope.
 
 # Nonce Endpoint
 
