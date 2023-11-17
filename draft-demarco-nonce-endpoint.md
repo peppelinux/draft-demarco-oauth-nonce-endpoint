@@ -113,9 +113,9 @@ the server MUST return an HTTP response with the  HTTP status code `400` and an 
 
 This HTTP response MUST contain the `Nonce-Endpoint-URI` HTTP header with the value set to the URL corresponding to the Nonce Endpoint, where the Client can request and fetch a new Nonce from the Nonce Issuer.
 
-The Client SHOULD use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new Nonce before renewing the request where to include the Nonce provided by the Nonce Issuer.
+The Client SHOULD use the endpoint provided in the `Nonce-Endpoint-URI` HTTP header to request a new Nonce before renewing the request, where to include the Nonce provided by the Nonce Issuer.
 
-Below is a non-normative example of an error response issued by a server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where a new Nonce can be requested:
+Below is a non-normative example of an error response issued by a server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where a Nonce can be requested:
 
 ~~~~ http
 HTTP/1.1 400 Bad Request
@@ -128,11 +128,12 @@ Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
 }
 ~~~~
 
-In cases where, for some reasons, a correctly issued Nonce can no longer be considered valid by the server that receives it, the server MUST return the generic error `"nonce_required"` reporting the same description as `"error_description"` as if the Nonce had not been received. The cases when an issued Nonce is considered no longer valid by its issuer MAY be caused by the rotation of the encryption keys, its expiration, or other specific conditions internal to an implementation.
+In cases where, for some reasons, a correctly issued Nonce can no longer be considered valid by the server that receives it, the server MUST return the generic error `"nonce_required"` reporting the same description as `"error_description"` as if the Nonce had not been received. The cases when an issued Nonce is considered no longer valid MAY be caused by the rotation of the encryption keys, its expiration or other specific conditions internal to an implementation.
 
 # Non-normative Examples
 
-The decrypted Nonce payload may be of different formats and contains any kind of implementation-specific attributes.
+The decrypted Nonce payload may use different formats and encodings, according to the different implementations that uses it, and contains any kind of implementation-specific attributes.
+
 Below are provided some non-normative examples, describing how a decrypted and JSON serialized Nonce payload may appear:
 
 ~~~~
