@@ -64,21 +64,21 @@ A Client requests a nonce by sending an HTTP GET request to the nonce endpoint a
 
 Below is a non normative example of the HTTP Request made by a Client to a nonce endpoint provided by a server.
 
-````
+~~~~ http
 GET /nonce HTTP/1.1
 Host: server.example.com
-````
+~~~~
 
 The server responds with a JSON object containing the nonce. The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide a JSON object containing the member `nonce`. Below a non-normative example of the response of the server, providing a nonce.
 
-````
+~~~~ http
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   "nonce": "d2JhY2NhbG91cmVqdWFuZGFt"
 }
-````
+~~~~
 
 The nonce value MAY use Base64-urlencoded string or a JSON Web Token [RFC7519].
 
@@ -98,7 +98,7 @@ The Client MUST use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP head
 
 Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request and provides, at the same time, the nonce endpoint in the form of HTTPs URL:
 
-````
+~~~~ http
 HTTP/1.1 400 Bad Request
 Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
 
@@ -107,14 +107,14 @@ Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
   "error_description":
     "Authorization server requires the nonce in the request"
 }
-````
+~~~~
 
 # Nonce Payload Non-normative Examples
 
 The nonce payload MAY be a JSON object and include several attributes.
 Below are provided some non-normative examples of how the decrypted and serialized nonce payload may be represented:
 
-````
+~~~~
 {
   "iss": "https://issuer.example.com",
   "iat": 1615908701,
@@ -122,7 +122,7 @@ Below are provided some non-normative examples of how the decrypted and serializ
   "source_endpoint": "https://service.example.com/nonce-endpoint",
   "aud": "https://service.example.com/endpoint"
 }
-````
+~~~~
 
 Please note that the values represented in the previous examples may depend on domain specific requirements and implementation.
 
