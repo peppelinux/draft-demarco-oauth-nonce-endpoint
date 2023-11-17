@@ -93,7 +93,7 @@ Host: server.example.com
 
 # Nonce Response
 
-The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST contain a JSON object where the member `nonce` is present. 
+The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST contain a JSON object where the member `nonce` is present.
 
 Below is a non-normative example of the response given by a Nonce Issuer:
 
