@@ -152,19 +152,17 @@ Please note that the values represented in the previous examples may depend on d
 
 The Nonce Endpoint MUST be protected by TLS to prevent eavesdropping and man-in-the-middle attacks, therefore the practices defined in [BCP195] should be followed.
 
-The Nonce Issuer MUST securely generate and store the symmetric key used to encrypt the Nonce. The key MUST NOT be provided to the Client or to any other entities outside of the Nonce Issuer's domain.
+The Nonce Issuer MUST securely generate and store the encryption key used to encrypt the Nonce. The robustness of the encryption key plays a crucial role in the security of the Nonce Endpoint. The following considerations should be taken into account:
 
-The robustness of the encryption key plays a crucial role in the security of the Nonce Endpoint. The following considerations should be taken into account:
+1. **Key Strength**: The cryptographic key used for encrypting the Nonce should be of sufficient length to resist brute-force attacks. For example, a key length of 256 bits is currently considered to provide a good level of security.
 
-1. **Key Strength**: The symmetric key used for encrypting the Nonce should be of sufficient length to resist brute-force attacks. For example, a key length of 256 bits is currently considered to provide a good level of security.
-
-2. **Key Management**: The symmetric key should be securely managed. It should be securely generated, stored, and revoked. Access to the key should be strictly controlled and limited to authorized entities only.
+2. **Key Management**: The cryptographic key should be securely managed. It should be securely generated, stored, and revoked. Access to the key should be strictly controlled and limited to authorized entities only.
 
 3. **Key Rotation**: Regular key rotation is a good practice to mitigate the risk of key compromise. The frequency of key rotation depends on the specific requirements and threat model, but a common practice is to rotate keys frequently.
 
-4. **Randomness**: The symmetric key, when used, should be generated using a secure random number generator to ensure its randomness. Predictable keys can be easily guessed by attackers.
+4. **Randomness**: The cryptographic key, when used, should be generated using a secure random number generator to ensure its randomness. Predictable keys can be easily guessed by attackers.
 
-5. **Secure Transmission**: If the symmetric key needs to be transmitted over a network and within the Nonce Issuer domain, it must be securely transmitted using secure protocols such as TLS.
+5. **Secure Transmission**: If the cryptographic key needs to be transmitted over a network and within the Nonce Issuer domain, it must be securely transmitted using secure protocols such as TLS.
 
 6. **Backup and Recovery**: Secure backup and recovery procedures should be in place for the cryptographic keys. This is to ensure that the key can be recovered in case of loss, while preventing unauthorized access to the backup.
 
