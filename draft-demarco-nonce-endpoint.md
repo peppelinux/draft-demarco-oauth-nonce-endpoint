@@ -47,7 +47,7 @@ The nonce endpoint allows a client to request and obtain server-generated opaque
 
 This specification defines a method for a client to query a server to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once.
 
-OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the issuance of the nonces to provide confidentiality of the information carried within the nonces. These information can be, for instance: the origin of the nonce, the time of issuance, the time of expiration and its audiences. An encrypted nonce value is used in infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
+OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the issuance of the nonces, providing confidentiality of the information carried within the nonces. These information can be, for instance: the origin of the nonce, the time of issuance, the time of expiration and its audiences. An encrypted nonce value is used in infrastructures that do not use shared memory between multiple servers to store and share, within their domain, the nonces previously issued to the Clients.
 
 # Conventions and Definitions
 
@@ -63,14 +63,14 @@ The Nonce endpoint is an HTTP endpoint that is capable of issuing new nonces. Th
 A Client requesting a nonce to a server uses an HTTP GET request to the server's nonce endpoint.
 The server providing a nonce to a Client responds with a JSON object [RFC7159] containing the nonce.
 
-Below is a non normative example of the HTTP Request made by a Client to the nonce endpoint provided by a server.
+Below is a non normative example of the HTTP Request made by a Client to the nonce endpoint.
 
 ~~~~ http
 GET /nonce HTTP/1.1
 Host: server.example.com
 ~~~~
 
-The server responds with a JSON object containing the nonce. The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide a JSON object containing the member `nonce`. Below is a non-normative example of the response given by a server that provides the nonce.
+The server responds with a JSON object containing the nonce. The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide a JSON object containing the member `nonce`. Below is a non-normative example of the response given by a server:
 
 ~~~~ http
 HTTP/1.1 200 OK
@@ -97,7 +97,7 @@ This HTTP response MUST contain the `Nonce-Endpoint-URI` HTTP header with the va
 
 The Client SHOULD use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before renewing the previous request.
 
-Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request, the response informs the Client about the nonce endpoint:
+Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request, the response informs the Client about the nonce endpoint where a new nonce can be requested:
 
 ~~~~ http
 HTTP/1.1 400 Bad Request
@@ -112,8 +112,8 @@ Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
 
 # Nonce Payload Non-normative Examples
 
-The decrypted nonce payload may be a JSON object and may include any kind of implementation-specific attributes.
-Below are provided some non-normative examples about how the decrypted and serialized nonce payload may be represented:
+The decrypted nonce payload may be a JSON object that contains any kind of implementation-specific attributes.
+Below are provided some non-normative examples, describing how a decrypted and serialized nonce payload may appear:
 
 ~~~~
 {
