@@ -66,7 +66,7 @@ This document defines the nonce endpoint for the implementations based on OAuth 
 
 This specification defines a method for a client to query an endpoint in a server, such as an OAuth 2.0 authorization server, to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once. 
 
-OAuth 2.0 deployments may use encryption, using a symmetric or an asymmetric key that is not provided to the client, to carry any confidential information relating to the nonce, such as the origin of the nonce, its time of issuance and expiration and its audiences, within itself; allowing the use of the nonce within infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
+OAuth 2.0 deployments of this endpoint must use encryption for the issuance of the nonces to provide confidentiality of the information carried within the nonces, these can be, for instance: the origin of the nonce, time of issuance and expiration, audiences; allowing its secure use within infrastructures that do not use shared memory between multiple servers to store and share the issued nonces within their domain.
 
 # Conventions and Definitions
 
@@ -100,10 +100,10 @@ Content-Type: application/json
 ````
 The nonce value MAY use Base64-urlencoded string or a JSON Web Token [RFC7519].
 
-The nonce value MAY be encrypted with an encryption key, if this happens the following rules are met:
+The nonce value MUST be encrypted with an encryption key that:
 
-- the encryption key MUST NOT be provided to the Client by the server.
-- the encryption key MUST NOT be in control of the Client.
+- MUST NOT be provided to the Client by the server.
+- MUST NOT be in control of the Client.
 
 # Errors
 
