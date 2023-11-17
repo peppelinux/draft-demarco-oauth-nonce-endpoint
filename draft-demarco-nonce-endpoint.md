@@ -82,7 +82,7 @@ The Nonce MUST satisfy the following requirements:
 
 # Nonce Request
 
-When a Client needs a Nonce, it sends an HTTP GET request to the server's Nonce Endpoint. In response, the Nonce Issuer provides a Nonce to the Client, encapsulated within a JSON object [RFC7159].
+When a Client needs a Nonce, it sends an HTTP GET request to the Nonce Endpoint. In response, the Nonce Issuer provides a Nonce to the Client, encapsulated within a JSON object [RFC7159].
 
 Below is a non normative example of the HTTP Request made by a Client to the Nonce Endpoint.
 
@@ -105,8 +105,6 @@ Content-Type: application/json
   "nonce": "d2JhY2NhbG91cmVqdWFuZGFt"
 }
 ~~~~
-
-The Nonce value MUST be completely opaque to the Client, in a way that the data contained in it MUST NOT be disclosed.
 
 # Nonce Endpoint Discovery
 
