@@ -110,14 +110,11 @@ The nonce value MUST be encrypted with an encryption key that:
 When a server requires the use of nonces in the request for a specific resource and the Client doesn't provide it in its request,
 the server MUST return an HTTP response with the `400` status and an `error` field with the value `"nonce_required"`.
 
-This HTTP response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value of the server nonce endpoint
-where the Client can obtain a new nonce.
+This HTTP response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value of the server nonce endpoint where the Client can obtain a new nonce.
 
-The Client MUST use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before
-renewing the previous request, in cases where the request can be renewed.
+The Client MUST use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before renewing the previous request, in cases where the request can be renewed.
 
-Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request
-and provides, at the same time, the nonce endpoint in the form of HTTPs URL:
+Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request and provides, at the same time, the nonce endpoint in the form of HTTPs URL:
 
 ````
 HTTP/1.1 400 Bad Request
