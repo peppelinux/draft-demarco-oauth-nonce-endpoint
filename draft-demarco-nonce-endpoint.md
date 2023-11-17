@@ -148,7 +148,7 @@ Please note that the values represented in the previous examples may depend on d
 
 # Security Considerations
 
-The nonce endpoint MUST be protected by TLS to prevent eavesdropping and man-in-the-middle attacks.
+The nonce endpoint MUST be protected by TLS to prevent eavesdropping and man-in-the-middle attacks, therefore the practices defined in [BCP195] must be followed.
 
 The server MUST securely generate and store the symmetric key used to encrypt the nonce. The key MUST NOT be provided to the Client.
 
@@ -166,7 +166,7 @@ The robustness of the encryption key plays a crucial role in the security of the
 
 6. Backup and Recovery: Secure backup and recovery procedures should be in place for the symmetric key. This is to ensure that the key can be recovered in case of loss, while preventing unauthorized access to the backup.
 
-Remember, the security of the nonce endpoint is only as strong as the security of the encryption key. Therefore, proper key management practices are essential.
+The security of the nonce endpoint is only as strong as the security of the encryption key. Therefore, proper key management practices are essential.
 
 # IANA Considerations
 
