@@ -52,7 +52,7 @@ normative:
   RFC6749: RFC6749
   RFC7159: RFC7159
   RFC7519: RFC7519
-  
+
 informative:
   BCP195: BCP195
 
