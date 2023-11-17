@@ -79,6 +79,7 @@ Content-Type: application/json
   "nonce": "d2JhY2NhbG91cmVqdWFuZGFt"
 }
 ````
+
 The nonce value MAY use Base64-urlencoded string or a JSON Web Token [RFC7519].
 
 The nonce value MUST be encrypted with an encryption key that:
@@ -122,6 +123,7 @@ Below are provided some non-normative examples of how the decrypted and serializ
   "aud": "https://service.example.com/endpoint"
 }
 ````
+
 Please note that the values represented in the previous examples may depend on domain specific requirements and implementation.
 
 # Security Considerations
