@@ -9,16 +9,16 @@ number:
 date:
 consensus: true
 v: 3
-area: "Security"
-workgroup: OAuth 2.0 Working Group
+# area: "Security"
+# workgroup: OAuth 2.0 Working Group
 keyword:
  - OAuth 2.0
 venue:
-  group: WG
-  type: Working Group
-  mail: demarcog83@gmail.com
-  github: peppelinux/draft-demarco-nonce-endpoint
-  latest: https://example.com/LATEST
+#  group: WG
+#  type: Working Group
+#  mail: demarcog83@gmail.com
+  github: "peppelinux/draft-demarco-nonce-endpoint"
+  latest: "https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-demarco-nonce-endpoint.html"
 
 author:
  -
