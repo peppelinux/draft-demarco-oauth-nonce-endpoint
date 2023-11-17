@@ -45,10 +45,9 @@ The nonce endpoint allows a client to request and obtain server-generated opaque
 
 # Introduction
 
-This specification defines a method for a client to request and obtain a new nonce from a server. The nonce is an arbitrary and randomic string used to protect a communication against replay attacks.
+This specification defines a method for a client to request and obtain a nonce from a server. The nonce is an arbitrary and randomic string used to protect a communication against replay attacks.
 
-
-OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the issuance of the nonces, providing confidentiality of the information carried within them. These information can be of different nature and designed to satisfy different implementation needs, such as the origin of the nonce, the time of issuance, the time of expiration and its audiences. An encrypted nonce value is used in infrastructures that do not use shared storages between multiple nodes to retain and share, within their domain, the nonces previously issued.
+This specification offers a storage-less solution for the infrastructures that do not use shared memories between multiple nodes to retain and share, within their domain, the nonces previously issued. The OAuth 2.0 deployments using the nonce endpoint uses cryptographic mechanisms for the issuance of the nonces, which contain several information according to the implementation needs, such as the origin of the nonce, the time of issuance, the time of expiration and its audiences.
 
 # Conventions and Definitions
 
