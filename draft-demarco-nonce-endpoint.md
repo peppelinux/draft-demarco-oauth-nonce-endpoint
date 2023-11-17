@@ -77,11 +77,12 @@ The Nonce MUST satisfy the following requirements:
 - The Nonce values MUST be encrypted with an encryption key that:
   - MUST NOT be provided by the Nonce Issuer to the Client;
   - MUST NOT be provided by the Nonce Issuer to any other entity outside the domain where the Nonce Issuer belongs;
-- No entity other than its Nonce Issuer, and the servers within the Nonce Issuer's domain, can know the decrypted contents of the Nonce or can be able to decrypt its content.
+- Only the Nonce Issuer and the servers within the Nonce Issuer's domain have the ability to decrypt the Nonce and access its decrypted contents. No other entity can decrypt or know the decrypted contents of the Nonce.
+
 
 # Nonce Request
 
-When a Client needs a Nonce, it sends an HTTP GET request to the Nonce Endpoint. In response, the Nonce Issuer provides a Nonce to the Client, encapsulated within a JSON object [RFC7159].
+When a Client needs a Nonce, it sends an HTTP GET request to the Nonce Endpoint.
 
 Below is a non normative example of the HTTP Request made by a Client to the Nonce Endpoint.
 
@@ -92,7 +93,8 @@ Host: server.example.com
 
 # Nonce Response
 
-The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST contain a JSON object where the member `nonce` is present.
+In response, the Nonce Issuer provides a Nonce to the Client, encapsulated within a JSON object [RFC7159].
+The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide in the response message a JSON object with the member `nonce` in it.
 
 Below is a non-normative example of the response given by a Nonce Issuer:
 
