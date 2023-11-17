@@ -45,9 +45,9 @@ The nonce endpoint allows a client to request and obtain server-generated opaque
 
 # Introduction
 
-This specification defines a method for a client to query a server to request and obtain a new nonce. The nonce is an arbitrary and randomic string used only once.
+This specification defines a method for a client to request and obtain a new nonce from a server. The nonce is an arbitrary and randomic string used only once.
 
-OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the issuance of the nonces, providing confidentiality of the information carried within the nonces. These information can be, for instance: the origin of the nonce, the time of issuance, the time of expiration and its audiences. An encrypted nonce value is used in infrastructures that do not use shared memory between multiple servers to store and share, within their domain, the nonces previously issued to the Clients.
+OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the issuance of the nonces, providing confidentiality of the information carried within them. These information can be, for instance: the origin of the nonce, the time of issuance, the time of expiration and its audiences. An encrypted nonce value is used in infrastructures that do not use shared memory between multiple nodes to store and share, within their domain, the nonces previously issued to the Clients.
 
 # Conventions and Definitions
 
@@ -97,7 +97,7 @@ This HTTP response MUST contain the `Nonce-Endpoint-URI` HTTP header with the va
 
 The Client SHOULD use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before renewing the previous request.
 
-Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request, the response informs the Client about the nonce endpoint where a new nonce can be requested:
+Below is a non-normative example of an error response issued by a server that requires the nonce in the Client request, the response informs the Client about the endpoint where a new nonce can be requested:
 
 ~~~~ http
 HTTP/1.1 400 Bad Request
