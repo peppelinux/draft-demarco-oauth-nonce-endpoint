@@ -55,7 +55,7 @@ OAuth 2.0 deployments using this endpoint uses cryptographic mechanisms for the 
 
 # Terminology
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC2119].
+- Nonce: random or pseudo-random number that is generated for a specific use, typically for cryptographic communication. It is used to protect against replay attacks by ensuring that a message or data cannot be reused or retransmitted, maliciously or otherwise. The term "nonce" stands for "number used once" and it must be unique within some scope.
 
 # Nonce Endpoint
 
@@ -148,6 +148,12 @@ The robustness of the encryption key plays a crucial role in the security of the
 6. Backup and Recovery: Secure backup and recovery procedures should be in place for the symmetric key. This is to ensure that the key can be recovered in case of loss, while preventing unauthorized access to the backup.
 
 The security of the nonce endpoint is only as strong as the security of the encryption key. Therefore, proper key management practices are essential.
+
+# Considerations about the JWT jti claim
+
+In this section are provided some consideration about the main differences and scopes the nonce in comparison to the `jti` claim, defined in [RFC7519].
+
+TBD.
 
 # IANA Considerations
 
