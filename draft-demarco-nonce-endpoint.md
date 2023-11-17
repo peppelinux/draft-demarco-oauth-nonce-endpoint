@@ -98,13 +98,13 @@ The nonce is a Base64-urlencoded string that MAY be encrypted with a symmetric k
 
 # Errors
 
-When a server requires the use of nonces in the request for a specific resource and the Client doesn't provide it in its request, 
+When a server requires the use of nonces in the request for a specific resource and the Client doesn't provide it in its request,
 the server MUST return an HTTP response with the `400` status and an `error` field with the value `"nonce_required"`.
 
-This HTTP response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value of the server nonce endpoint 
-where the Client can obtain a new nonce. 
+This HTTP response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value of the server nonce endpoint
+where the Client can obtain a new nonce.
 
-The Client MUST use the URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before 
+The Client MUST use the URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before
 renewing the previous request, in cases where the request can be renewed.
 
 Below a non-normative example of an error response issued by a server that requires the nonce in the Client requests
@@ -123,7 +123,7 @@ Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
 
 # Nonce Payload Non-normative Examples
 
-The nonce payload MAY be a JSON object and include several attributes. 
+The nonce payload MAY be a JSON object and include several attributes.
 Below are provided some non-normative examples of how the decrypted and serialized nonce payload may be represented:
 
 ````
@@ -141,7 +141,7 @@ Please note that the values represented in the previous examples may depend on d
 
 The nonce endpoint MUST be protected by TLS to prevent eavesdropping and man-in-the-middle attacks.
 
-The server MUST securely generate and store the symmetric key used to encrypt the nonce. The key MUST NOT be provided to the client.
+The server MUST securely generate and store the symmetric key used to encrypt the nonce. The key MUST NOT be provided to the Client.
 
 The robustness of the encryption key plays a crucial role in the security of the nonce endpoint. The following considerations should be taken into account:
 
