@@ -71,7 +71,7 @@ GET /nonce HTTP/1.1
 Host: server.example.com
 ~~~~
 
-The server responds with a JSON object containing the nonce. The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide a JSON object containing the member `nonce`. Below is a non-normative example of the response given by a server:
+The response MUST use the HTTP Header Content-Type value set to `application/json` and MUST provide a JSON object containing the member `nonce`. Below is a non-normative example of the response given by a server:
 
 ~~~~ http
 HTTP/1.1 200 OK
@@ -86,15 +86,15 @@ The nonce value MAY use Base64-urlencoded string or a JSON Web Token [RFC7519].
 
 The nonce value MUST be encrypted with an encryption key that:
 
-- MUST NOT be provided to the Client by the server.
+- MUST NOT be provided to the Client by the server;
 - MUST NOT be in control of the Client.
 
 # Errors
 
 When a server requires the use of nonces in the request for a specific resource and the Client doesn't provide it in its request,
-the server MUST return an HTTP response with the `400` status and an `error` field with the value `"nonce_required"`.
+the server MUST return an HTTP response with the `400` status and an `error` field with the value set to `"nonce_required"`.
 
-This HTTP response MUST contain the `Nonce-Endpoint-URI` HTTP header with the value set to the URL corresponding to the server nonce endpoint, where a new nonce can be provided to the Client.
+This HTTP response MUST contain the `Nonce-Endpoint-URI` HTTP header with the value set to the URL corresponding to the nonce endpoint, where a new nonce can be given to the Client.
 
 The Client SHOULD use the HTTPs URL provided in the `Nonce-Endpoint-URI` HTTP header to request a new nonce before renewing the previous request.
 
@@ -113,8 +113,8 @@ Nonce-Endpoint-URI: http://server.example.org/nonce-endpoint
 
 # Nonce Payload Non-normative Examples
 
-The decrypted nonce payload may be a JSON object that contains any kind of implementation-specific attributes.
-Below are provided some non-normative examples, describing how a decrypted and serialized nonce payload may appear:
+The decrypted nonce payload may be of different formats and contains any kind of implementation-specific attributes.
+Below are provided some non-normative examples, describing how a decrypted and JSON serialized nonce payload may appear:
 
 ~~~~
 {
@@ -132,7 +132,7 @@ Please note that the values represented in the previous examples may depend on d
 
 The nonce endpoint MUST be protected by TLS to prevent eavesdropping and man-in-the-middle attacks, therefore the practices defined in [BCP195] must be followed.
 
-The server MUST securely generate and store the symmetric key used to encrypt the nonce. The key MUST NOT be provided to the Client.
+The server MUST securely generate and store the symmetric key used to encrypt the nonce. The key MUST NOT be provided to the Client or to any other entities outside of the server's domain.
 
 The robustness of the encryption key plays a crucial role in the security of the nonce endpoint. The following considerations should be taken into account:
 
@@ -150,9 +150,9 @@ The robustness of the encryption key plays a crucial role in the security of the
 
 The security of the nonce endpoint is only as strong as the security of the encryption key. Therefore, proper key management practices are essential.
 
-# Considerations about the JWT jti claim
+# Considerations about nonce vs. jti
 
-In this section are provided some consideration about the main differences and scopes the nonce in comparison to the `jti` claim, defined in [RFC7519].
+In this section are provided some consideration about the main differences and scopes about the nonce in comparison to the `jti` claim defined in [RFC7519].
 
 TBD.
 
