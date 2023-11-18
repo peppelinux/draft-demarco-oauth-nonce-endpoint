@@ -38,15 +38,15 @@ informative:
 
 --- abstract
 
-This document defines the nonce endpoint for OAuth 2.0 implementations [RFC6749] allowing a client to request and obtain server-generated opaque nonces from a server.
+This document defines the nonce endpoint for OAuth 2.0 implementations [RFC6749], outlining how a server issues server-generated opaque nonces and how a client can be informed about this endpoint to be able to get a nonce.
 
 --- middle
 
 # Introduction
 
-This specification defines a method for a client to request and obtain a nonce from a server that requires it to protect a communication against replay attacks.
+This specification defines a method for a client to request and obtain a nonce from a server that requires nonces to protect communications against replay attacks.
 
-The nonce endpoint defined in this document outlines a storage-less solution for infrastructures that do not use shared memories between multiple nodes. The OAuth 2.0 deployments that uses the nonce endpoint described in this specification are able to use the nonces issued by a trusted party, by mean of cryptographic mechanisms, and verify information such as the origin of the nonce, the time of issuance, the time of expiration and its audiences.
+The nonce endpoint defined in this document outlines a storage-less solution for infrastructures that do not use shared memories between multiple nodes. The OAuth 2.0 deployments that uses the nonce endpoint described in this specification can use the nonces issued by a trusted party, by mean of cryptographic mechanisms.
 
 # Conventions and Definitions
 
@@ -77,9 +77,9 @@ The Nonce value satisfies the following requirements:
   - MUST NOT be provided by the Nonce Issuer to the Client;
   - MUST NOT be provided by the Nonce Issuer to any other entity outside the domain where the Nonce Issuer belongs.
 
-The Nonce Issuer value satisfies the following requirements:
+The Nonce Issuer satisfies the following requirements:
 
-- The Nonce Issuer, and the servers within the Nonce Issuer's domain, have the ability to decrypt the Nonce and access its decrypted contents. No other entity can decrypt or know the decrypted contents of the Nonce.
+- The Nonce Issuer, and the servers within the Nonce Issuer's domain, can decrypt the Nonce and access its decrypted contents. No other entity might decrypt or know the decrypted contents of the Nonce.
 
 
 # Nonce Request
@@ -116,9 +116,9 @@ the server MUST return an HTTP response with the  HTTP status code `400` and an 
 
 This response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value set to the URL corresponding to the Nonce Endpoint, where the Client SHOULD request and fetch a new Nonce.
 
-The Client SHOULD use the endpoint provided in the `Nonce-Endpoint-URI` HTTP header to request a Nonce. Once the Nonce is reveived, the Client MAY renew the request to the server, including the obtained Nonce.
+The Client SHOULD use the endpoint provided in the `Nonce-Endpoint-URI` HTTP header to request a Nonce. Once the Nonce is received, the Client MAY renew the request to the server, including the obtained Nonce.
 
-Below is a non-normative example of an error response issued by a server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where the Nonce can be requested:
+Below is a non-normative example of an error response issued by a server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where the Nonce should be requested:
 
 ~~~~ http
 HTTP/1.1 400 Bad Request
@@ -135,7 +135,7 @@ In cases where, for some reasons, a correctly issued Nonce can no longer be cons
 
 # Non-normative Examples
 
-The decrypted Nonce payload may use different formats and encodings, according to the different implementations that requires it, and contains any kind of implementation-specific attributes.
+The decrypted Nonce payload may use different formats and encodings, according to the different implemententative requirements, and contains any kind of implementation-specific attributes, such as the issuance time, the time of expiration, the audiences and other where needed.
 
 Below are provided some non-normative examples, describing how a decrypted and JSON serialized Nonce payload may appear:
 
@@ -152,7 +152,7 @@ Below are provided some non-normative examples, describing how a decrypted and J
 }
 ~~~~
 
-Please note that the values represented in the previous examples may depend on domain specific requirements and implementation and these MUST NOT be intended as normative.
+Please note that the values represented in the previous examples may depend on domain specific requirements and MUST NOT be intended as normative.
 
 # Security Considerations
 
