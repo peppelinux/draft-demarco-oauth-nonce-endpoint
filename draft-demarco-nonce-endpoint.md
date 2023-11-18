@@ -76,7 +76,11 @@ The Nonce value satisfies the following requirements:
 
 The Nonce Issuer satisfies the following requirements:
 
-- The Nonce Issuer, and the servers within the Nonce Issuer's domain, can decrypt the Nonce and access its decrypted contents. No other entity might decrypt or know the decrypted contents of the Nonce.
+- The Nonce Issuer MUST encrypt the Nonce value.
+
+The audiences of the Nonce satisfies the following requirements:
+
+- The servers, within the Nonce Issuer's domain, SHOULD decrypt the Nonce and access its decrypted contents. No other entity might decrypt or know the decrypted contents of the Nonce.
 
 
 # Nonce Request
