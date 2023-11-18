@@ -76,7 +76,7 @@ The Nonce value satisfies the following requirements:
 - It MUST be encrypted with an encryption key that:
   - MUST NOT be provided by the Nonce Issuer to the Client;
   - MUST NOT be provided by the Nonce Issuer to any other entity outside the domain where the Nonce Issuer belongs.
- 
+
 The Nonce Issuer value satisfies the following requirements:
 
 - The Nonce Issuer, and the servers within the Nonce Issuer's domain, have the ability to decrypt the Nonce and access its decrypted contents. No other entity can decrypt or know the decrypted contents of the Nonce.
