@@ -38,7 +38,7 @@ informative:
 
 --- abstract
 
-This document defines the nonce endpoint for OAuth 2.0 implementations [RFC6749], outlining how a server issues server-generated opaque nonces and how a client can be informed about this endpoint to be able to get a nonce.
+This document defines the nonce endpoint for OAuth 2.0 implementations [RFC6749], outlining how a server issues opaque nonces and how a client can be informed about this endpoint to be able to get a server-generated nonce.
 
 --- middle
 
