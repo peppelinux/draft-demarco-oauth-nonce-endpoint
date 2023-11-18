@@ -175,7 +175,7 @@ The security of the Nonce Endpoint is only as strong as the security of the encr
 
 In this section are provided some consideration about the main differences and scopes about the nonce in comparison to the `jti` claim defined in [RFC7519].
 
-Both `jti` and Nonces are used to prevents replay attacks, however Nonces offer more implementation flexibility and are considered best practice. They can be created and managed stateless (e.g., by issuing the hmac over the current time as the nonce), as this document outlines. 
+Both `jti` and Nonces are used to prevents replay attacks, however Nonces offer more implementation flexibility and are considered best practice. They can be created and managed stateless (e.g., by issuing the hmac over the current time as the nonce), as this document outlines.
 
 The main differences between the use of the `jti` and the Nonces can be summarized as follows:
 
