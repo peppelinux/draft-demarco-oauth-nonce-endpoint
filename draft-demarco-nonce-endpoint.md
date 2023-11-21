@@ -112,7 +112,7 @@ Content-Type: application/json
 # Nonce Endpoint Discovery
 
 When an Authorization Server requires the use of a Nonce in the request for a specific resource and the Client does not provide it in its request,
-the Authorization Server MUST return an HTTP response with the  HTTP status code `400` and an `error` field with the value set to `"nonce_required"`.
+the Authorization Server MUST return an HTTP response with the HTTP status code `400` and an `error` field with the value set to `"nonce_required"`.
 
 This response MUST also contain the `Nonce-Endpoint-URI` HTTP header, with the value set to the URL corresponding to the Nonce Endpoint, where the Client SHOULD request and fetch a new Nonce. Once the Nonce is received, the Client MAY renew the request to the Authorization Server, including the obtained Nonce.
 
