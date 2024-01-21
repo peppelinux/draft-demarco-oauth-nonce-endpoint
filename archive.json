@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-18T00:29:25.493550+00:00",
+  "timestamp": "2024-01-21T00:32:23.094539+00:00",
   "repo": "peppelinux/draft-demarco-nonce-endpoint",
   "labels": [
     {
@@ -144,6 +144,32 @@
       "updatedAt": "2023-12-08T13:50:54Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDOKus-lM58nvP7",
+      "title": "Where to discover the endpoint?",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/9",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [
+        "enhancement"
+      ],
+      "body": "Should there be guidance on where the endpoint can be discovered?\r\n\r\nIncluding but not limited to:\r\n\r\n- `.well-known/jwt-vc-issuer`\r\n- `.well-known/openid-configuration`\r\n\r\n...",
+      "createdAt": "2024-01-19T15:33:09Z",
+      "updatedAt": "2024-01-19T15:35:02Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "this is protocol agnostic, it could be for oauth AS or client openid rp or op and so on\r\n\r\nI agree that we have to create a `Metadata` section where the `nonce_endpoint` will be defined and an IANA registration for that",
+          "createdAt": "2024-01-19T15:34:42Z",
+          "updatedAt": "2024-01-19T15:34:42Z"
+        }
+      ]
     }
   ],
   "pulls": [
