@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-01-23T00:30:06.331804+00:00",
+  "timestamp": "2024-01-25T00:29:55.762503+00:00",
   "repo": "peppelinux/draft-demarco-nonce-endpoint",
   "labels": [
     {
@@ -47,6 +47,16 @@
       "name": "wontfix",
       "description": "This will not be worked on",
       "color": "ffffff"
+    },
+    {
+      "name": "PR-required",
+      "description": "",
+      "color": "059246"
+    },
+    {
+      "name": "editorial",
+      "description": "",
+      "color": "C4CBA9"
     }
   ],
   "issues": [
@@ -58,11 +68,13 @@
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "giadas"
+      ],
       "labels": [],
       "body": "- [ ] The proposed solution assumes that the interaction starts with the client interacting with the server without a nonce. As a result, an error code is returned with the nonce endpoint details and the client is then expected to interact with the nonce endpoint, obtain a new nonce, and then retry the request with the nonce.\r\n\r\n- [ ] The document should describe a flow that would allow the client to initially go directly to the nonce endpoint to obtain a nonce before contacting the server, to avoid the error case.\r\n\r\n- [ ] the document should describe a flow that would allow a valid response to a request with a valid nonce to return a new nonce that could be used with subsequent requests to avoid the need for a new request to the nonce endpoint, as an optimization to reduce latency in load situations.\r\n\r\n- [ ] The document should also add this new endpoint to the \"OAuth Authorization Server Metadata\" registry.",
       "createdAt": "2023-11-20T20:44:49Z",
-      "updatedAt": "2023-11-20T20:44:49Z",
+      "updatedAt": "2024-01-24T20:00:35Z",
       "closedAt": null,
       "comments": []
     },
@@ -74,11 +86,15 @@
       "state": "OPEN",
       "author": "fmarino-ipzs",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "giadas"
+      ],
+      "labels": [
+        "PR-required"
+      ],
       "body": "The main basic security requirements for the Nonce are:\r\n\r\n1. It MUST be **unguessable**.\r\n2. It MUST be used **once** and for a **short time**.\r\n\r\nThe first requirement can be achieved either by:\r\n- (Cryptographic) Randomness or\r\n- Encryption\r\n",
       "createdAt": "2023-11-21T11:55:40Z",
-      "updatedAt": "2023-11-21T23:49:32Z",
+      "updatedAt": "2024-01-24T20:00:09Z",
       "closedAt": null,
       "comments": [
         {
@@ -105,11 +121,13 @@
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "giadas"
+      ],
       "labels": [],
       "body": "two different http requests to the nonce endpoint MUST generate responses containing two different nonces, because it must not be possibile to obtain the same nonce in the multiverse of the nonces.\r\n\r\na random value in the payload MUST be always provided to increase the security, aside the iat, exp ...\r\n\r\niat and exp alone cannot prevent that the same encrypted nonce would be provided if two concurrent requests happens in the same time",
       "createdAt": "2023-11-25T23:36:46Z",
-      "updatedAt": "2023-11-25T23:36:46Z",
+      "updatedAt": "2024-01-24T20:01:06Z",
       "closedAt": null,
       "comments": []
     },
@@ -121,11 +139,13 @@
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
-      "assignees": [],
+      "assignees": [
+        "peppelinux"
+      ],
       "labels": [],
       "body": "writing this draft I found the evidence that there was a false assumption about how the nonce would be better than jti (using client_id+jti-value) in preventing replay attacks when the nonces doesn't requires a shared storage.\r\n\r\nit seems so evident right now that even if the nonce is encrypted and not shared between multiple nodes, this doesn't prevent the replay attacks if, once issued and used to a specific endpoint by a client, it must then be saved in a shared storage between the nodes to actually prevents replay attacks.\r\n\r\nThen all the assumption about how the nonce is considered more smart and scalable than the jti failed.\r\n\r\nwe can only say that nonce is issued by AS while jti by client, but against the replay attacks a shared storage between the nodes MUST always be provided.",
       "createdAt": "2023-11-25T23:38:50Z",
-      "updatedAt": "2023-11-25T23:38:50Z",
+      "updatedAt": "2024-01-24T20:01:27Z",
       "closedAt": null,
       "comments": []
     },
@@ -152,14 +172,17 @@
       "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/9",
       "state": "OPEN",
       "author": "OR13",
-      "authorAssociation": "NONE",
-      "assignees": [],
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "OR13"
+      ],
       "labels": [
-        "enhancement"
+        "enhancement",
+        "PR-required"
       ],
       "body": "Should there be guidance on where the endpoint can be discovered?\r\n\r\nIncluding but not limited to:\r\n\r\n- `.well-known/jwt-vc-issuer`\r\n- `.well-known/openid-configuration`\r\n\r\n...",
       "createdAt": "2024-01-19T15:33:09Z",
-      "updatedAt": "2024-01-19T15:35:02Z",
+      "updatedAt": "2024-01-24T18:04:15Z",
       "closedAt": null,
       "comments": [
         {
@@ -168,6 +191,58 @@
           "body": "this is protocol agnostic, it could be for oauth AS or client openid rp or op and so on\r\n\r\nI agree that we have to create a `Metadata` section where the `nonce_endpoint` will be defined and an IANA registration for that",
           "createdAt": "2024-01-19T15:34:42Z",
           "updatedAt": "2024-01-19T15:34:42Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "A Pull Request is required where the metadata parameter is explained (and defined, for IANA registration)\r\n",
+          "createdAt": "2024-01-24T18:00:18Z",
+          "updatedAt": "2024-01-24T18:00:18Z"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "I_kwDOKus-lM59GKhM",
+      "title": "What does encrypt mean?",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/10",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "The payload seems to be JSON only, but I might recommend to lock this down a bit further.\r\n\r\nThe nonce MUST be a JWT (JWE) or CWT (COSE Encrypt).\r\n\r\nImplementations MUST support `ECDH-ES+A256KW` and MAY support any encryption algorithms that are not marked prohibited in:\r\n\r\n- https://www.iana.org/assignments/cose/cose.xhtml\r\n- https://www.iana.org/assignments/jose/jose.xhtml\r\n\r\nWhen CWT is used the nonce MUST be base64url encoded.\r\n",
+      "createdAt": "2024-01-24T17:38:33Z",
+      "updatedAt": "2024-01-24T17:38:33Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOKus-lM59GOvQ",
+      "title": "Usage with scopes and RAR",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/11",
+      "state": "OPEN",
+      "author": "OR13",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "OR13"
+      ],
+      "labels": [
+        "PR-required",
+        "editorial"
+      ],
+      "body": "\r\n- https://datatracker.ietf.org/doc/html/rfc9396#name-relationship-to-the-scope-p\r\n\r\nThere should be examples addressing RAR and traditional approaches to scope.\r\n\r\n> The term \"Nonce\" stands for \"number used once\" and it MUST be unique within some scope.\r\n\r\nHere I suspect people will become confused by the word scope, without additional clarity.",
+      "createdAt": "2024-01-24T17:46:23Z",
+      "updatedAt": "2024-01-24T18:04:04Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "I agree, editorial, PR required",
+          "createdAt": "2024-01-24T18:01:21Z",
+          "updatedAt": "2024-01-24T18:01:21Z"
         }
       ]
     }
