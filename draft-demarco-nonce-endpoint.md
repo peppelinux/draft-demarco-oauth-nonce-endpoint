@@ -93,6 +93,27 @@ GET /nonce HTTP/1.1
 Host: server.example.com
 ~~~~
 
+Below a sequence diagram represents the proactive approach of obtaining a Nonce from the Nonce endpoint
+before making a request to the server, thus avoiding the error case where the server requires a
+nonce that the Client did not provide. This approach illustrated below ensures a smoother
+interaction flow and enhances the understanding of the Nonce acquisition process in the context
+of OAuth 2.0 implementations.
+
+~~~~
+Client                Nonce Endpoint                Server
+  |                           |                        |
+  |--- GET /nonce ----------->|                        |
+  |                           |--- Generate Nonce ---> |
+  |                           |<-- Nonce ------------- |
+  |<-- Nonce -----------------|                        |
+  |                           |                        |
+  |--- Request with Nonce --->|----------------------->|
+  |                           |                        |--- Validate Nonce --->
+  |                           |                        |<-- Validation OK ---- |
+  |                           |<-----------------------|                        |
+  |                           |                        |
+~~~~
+
 # Nonce Response
 
 The Nonce Endpoint provides a Nonce to the Client, encapsulated within a JSON object [RFC7159].
