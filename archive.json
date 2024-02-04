@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-01T00:29:01.081341+00:00",
+  "timestamp": "2024-02-04T00:30:15.329688+00:00",
   "repo": "peppelinux/draft-demarco-nonce-endpoint",
   "labels": [
     {
@@ -245,6 +245,53 @@
           "updatedAt": "2024-01-24T18:01:21Z"
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOKus-lM5-Kl17",
+      "title": "requesting nonce by scopes",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/12",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Mike Jones suggests to request nonces by expliciting their scopes, since each nonce should be intended for a particular endpoint/scope.\r\n\r\nIf no scopes are requested, a default scope would be configured.\r\n\r\nthis means that if the nonce carries an encrypted payload, the its scope should be included in the payload.\r\n\r\n",
+      "createdAt": "2024-02-03T22:52:58Z",
+      "updatedAt": "2024-02-04T00:09:24Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "This could be managed by specifying the audience/endpoint, which would implicitly define a sort of scope of the nonce (authorization endpoint ...).\r\n\r\nI would give to the nonce the granularity of the oauth scopes",
+          "createdAt": "2024-02-03T23:54:33Z",
+          "updatedAt": "2024-02-03T23:54:33Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "The current examples include audience.\n\nWe should update them to include scope as well.\n\nWe might also leave room for alternatives to scope to be used in the future.",
+          "createdAt": "2024-02-04T00:09:23Z",
+          "updatedAt": "2024-02-04T00:09:23Z"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOKus-lM5-K0uM",
+      "title": "Nonce endpoint and ACME newNonce endpoint",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/13",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "similarities between the two, that should be mentioned\r\nhttps://datatracker.ietf.org/doc/html/rfc8555#section-7.2\r\n\r\nit also brings under discussion the benefit of using HTTP HEAD instead of GET\r\n\r\n",
+      "createdAt": "2024-02-04T00:28:35Z",
+      "updatedAt": "2024-02-04T00:28:35Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
