@@ -129,7 +129,7 @@ Table of Contents
 
    *  It MUST be opaque to receiving Clients.
 
-   *  It MUST be unguessable.
+   *  It MUST be unguessable, by cryptographic randomness or encryption.
 
    *  It MUST be used once and for a short time.
 
