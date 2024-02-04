@@ -81,6 +81,35 @@ The **audiences of the Nonces** satisfies the following requirements:
 
 - The servers, within the Nonce Issuer's domain, SHOULD decrypt the Nonce and access its decrypted contents. No other entity might decrypt or know the decrypted contents of the Nonce.
 
+# OAuth Authorization Server Metadata Registration
+
+This specification introduces a new metadata value for use in the OAuth 2.0 Authorization Server Metadata [RFC8414]. This metadata enables OAuth 2.0 clients to discover the Nonce Endpoint of the Authorization Server.
+
+## Nonce Endpoint Metadata
+
+The following metadata parameter is registered by this specification:
+
+- **Name**: `nonce_endpoint`
+- **Description**: URL of the Server's Nonce Endpoint. This endpoint is used by the client to obtain a nonce value as specified in this document.
+- **Specification Document(s)**: This document.
+
+Clients that utilize the Nonce Endpoint SHOULD first retrieve the Server's metadata as described in [RFC8414] and use the `nonce_endpoint` value to discover the location of the Nonce Endpoint.
+
+The OAuth 2.0 Authorization Server MUST include the `nonce_endpoint` metadata in its OAuth 2.0 Authorization Server Metadata if it supports the Nonce Endpoint functionality described in this specification.
+
+### Example Metadata
+
+Below is an example of how the Authorization Server Metadata might include the `nonce_endpoint`:
+
+~~~~
+{
+  "issuer": "https://server.example.com",
+  "authorization_endpoint": "https://server.example.com/oauth2/authorize",
+  "token_endpoint": "https://server.example.com/oauth2/token",
+  "nonce_endpoint": "https://server.example.com/oauth2/nonce",
+  ...
+}
+~~~~
 
 # Nonce Request
 
