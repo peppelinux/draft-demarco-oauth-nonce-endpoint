@@ -69,7 +69,7 @@ The **Nonce Endpoint** MUST satisfy the following requirements:
 The **Nonce** MUST satisfy the following requirements:
 
 - It MUST be opaque to receiving Clients.
-- It MUST be unguessable.
+- It MUST be unguessable, by cryptographic randomness or encryption.
 - It MUST be used once and for a short time.
 
 The **Nonce Issuer** MUST satisfy the following requirements:
