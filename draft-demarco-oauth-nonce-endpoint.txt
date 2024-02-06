@@ -4,8 +4,9 @@
 
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
-Intended status: Informational                           6 February 2024
-Expires: 9 August 2024
+Intended status: Informational                                 O. Steele
+Expires: 9 August 2024                                         Transmute
+                                                         6 February 2024
 
 
                         OAuth 2.0 Nonce Endpoint
@@ -80,7 +81,7 @@ Table of Contents
      12.1.  Normative References
      12.2.  Informative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -373,8 +374,13 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
 
    Giuseppe De Marco
    Independent
    Email: demarcog83@gmail.com
+
+
+   Orie Steele
+   Transmute
+   Email: orie@transmute.industries
