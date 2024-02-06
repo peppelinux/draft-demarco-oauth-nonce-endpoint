@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-04T00:30:15.329688+00:00",
+  "timestamp": "2024-02-06T00:27:29.601536+00:00",
   "repo": "peppelinux/draft-demarco-nonce-endpoint",
   "labels": [
     {
@@ -51,12 +51,17 @@
     {
       "name": "PR-required",
       "description": "",
-      "color": "059246"
+      "color": "CBE2AF"
     },
     {
       "name": "editorial",
       "description": "",
       "color": "C4CBA9"
+    },
+    {
+      "name": "PR-provided",
+      "description": "",
+      "color": "298D1D"
     }
   ],
   "issues": [
@@ -69,12 +74,13 @@
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [
+        "peppelinux",
         "giadas"
       ],
       "labels": [],
-      "body": "- [ ] The proposed solution assumes that the interaction starts with the client interacting with the server without a nonce. As a result, an error code is returned with the nonce endpoint details and the client is then expected to interact with the nonce endpoint, obtain a new nonce, and then retry the request with the nonce.\r\n\r\n- [ ] The document should describe a flow that would allow the client to initially go directly to the nonce endpoint to obtain a nonce before contacting the server, to avoid the error case.\r\n\r\n- [ ] the document should describe a flow that would allow a valid response to a request with a valid nonce to return a new nonce that could be used with subsequent requests to avoid the need for a new request to the nonce endpoint, as an optimization to reduce latency in load situations.\r\n\r\n- [ ] The document should also add this new endpoint to the \"OAuth Authorization Server Metadata\" registry.",
+      "body": "- [ ] The proposed solution assumes that the interaction starts with the client interacting with the server without a nonce. As a result, an error code is returned with the nonce endpoint details and the client is then expected to interact with the nonce endpoint, obtain a new nonce, and then retry the request with the nonce.\r\n\r\n- [x] The document should describe a flow that would allow the client to initially go directly to the nonce endpoint to obtain a nonce before contacting the server, to avoid the error case. (see: https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/15)\r\n\r\n- [ ] the document should describe a flow that would allow a valid response to a request with a valid nonce to return a new nonce that could be used with subsequent requests to avoid the need for a new request to the nonce endpoint, as an optimization to reduce latency in load situations.\r\n\r\n- [x] The document should also add this new endpoint to the \"OAuth Authorization Server Metadata\" registry. (See: https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/16)",
       "createdAt": "2023-11-20T20:44:49Z",
-      "updatedAt": "2024-01-24T20:00:35Z",
+      "updatedAt": "2024-02-04T01:16:40Z",
       "closedAt": null,
       "comments": []
     },
@@ -87,14 +93,14 @@
       "author": "fmarino-ipzs",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [
-        "giadas"
+        "peppelinux"
       ],
       "labels": [
-        "PR-required"
+        "PR-provided"
       ],
       "body": "The main basic security requirements for the Nonce are:\r\n\r\n1. It MUST be **unguessable**.\r\n2. It MUST be used **once** and for a **short time**.\r\n\r\nThe first requirement can be achieved either by:\r\n- (Cryptographic) Randomness or\r\n- Encryption\r\n",
       "createdAt": "2023-11-21T11:55:40Z",
-      "updatedAt": "2024-01-24T20:00:09Z",
+      "updatedAt": "2024-02-04T01:15:01Z",
       "closedAt": null,
       "comments": [
         {
@@ -178,11 +184,11 @@
       ],
       "labels": [
         "enhancement",
-        "PR-required"
+        "PR-provided"
       ],
       "body": "Should there be guidance on where the endpoint can be discovered?\r\n\r\nIncluding but not limited to:\r\n\r\n- `.well-known/jwt-vc-issuer`\r\n- `.well-known/openid-configuration`\r\n\r\n...",
       "createdAt": "2024-01-19T15:33:09Z",
-      "updatedAt": "2024-01-24T18:04:15Z",
+      "updatedAt": "2024-02-04T01:15:23Z",
       "closedAt": null,
       "comments": [
         {
@@ -198,6 +204,13 @@
           "body": "A Pull Request is required where the metadata parameter is explained (and defined, for IANA registration)\r\n",
           "createdAt": "2024-01-24T18:00:18Z",
           "updatedAt": "2024-01-24T18:00:18Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "See https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/16",
+          "createdAt": "2024-02-04T01:06:37Z",
+          "updatedAt": "2024-02-04T01:06:37Z"
         }
       ]
     },
@@ -209,13 +222,25 @@
       "state": "OPEN",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
-      "assignees": [],
-      "labels": [],
+      "assignees": [
+        "OR13"
+      ],
+      "labels": [
+        "PR-required"
+      ],
       "body": "The payload seems to be JSON only, but I might recommend to lock this down a bit further.\r\n\r\nThe nonce MUST be a JWT (JWE) or CWT (COSE Encrypt).\r\n\r\nImplementations MUST support `ECDH-ES+A256KW` and MAY support any encryption algorithms that are not marked prohibited in:\r\n\r\n- https://www.iana.org/assignments/cose/cose.xhtml\r\n- https://www.iana.org/assignments/jose/jose.xhtml\r\n\r\nWhen CWT is used the nonce MUST be base64url encoded.\r\n",
       "createdAt": "2024-01-24T17:38:33Z",
-      "updatedAt": "2024-01-24T17:38:33Z",
+      "updatedAt": "2024-02-04T01:14:29Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "LGTM @OR13 ",
+          "createdAt": "2024-02-04T01:14:20Z",
+          "updatedAt": "2024-02-04T01:14:20Z"
+        }
+      ]
     },
     {
       "number": 11,
@@ -289,9 +314,17 @@
       "labels": [],
       "body": "similarities between the two, that should be mentioned\r\nhttps://datatracker.ietf.org/doc/html/rfc8555#section-7.2\r\n\r\nit also brings under discussion the benefit of using HTTP HEAD instead of GET\r\n\r\n",
       "createdAt": "2024-02-04T00:28:35Z",
-      "updatedAt": "2024-02-04T00:28:35Z",
+      "updatedAt": "2024-02-04T00:43:00Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Support for GET is required in acme.\n\nI wonder why they chose to support both.",
+          "createdAt": "2024-02-04T00:42:40Z",
+          "updatedAt": "2024-02-04T00:43:00Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -428,6 +461,110 @@
       "mergeCommit": {
         "oid": "28ac702f50189d54985a8e57ebe69c96bcd619c1"
       },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDOKus-lM5l7jGZ",
+      "title": "fix: nonce endpoint for AS and any other entity type that might require it",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/14",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR enables any entity in implementing the nonce endpoint and not only the AS",
+      "createdAt": "2024-02-04T00:53:26Z",
+      "updatedAt": "2024-02-04T00:53:30Z",
+      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
+      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRefName": "notonlyas",
+      "headRefOid": "dbac6568844a273b423dac308d43aefafd1687c5",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOKus-lM5l7jZo",
+      "title": "added nonce request sequence diagram",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/15",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "A sequence diagram is included in the \"Nonce Request\" section of the document. \r\n\r\nIt visually represents the proactive approach of obtaining a nonce from the nonce endpoint before making a request to the server, thus avoiding the error case where the server requires a nonce that the client did not provide. This approach ensures a smoother interaction flow and enhances the understanding of the nonce acquisition process in the context of OAuth 2.0 implementations.",
+      "createdAt": "2024-02-04T01:00:09Z",
+      "updatedAt": "2024-02-04T01:00:09Z",
+      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
+      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRefName": "seq-diag",
+      "headRefOid": "48fdff9a93230ddec7198f31d32ce5605257b70f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 16,
+      "id": "PR_kwDOKus-lM5l7jqH",
+      "title": "feat: metadata registration",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/16",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR clearly defines the new metadata parameter, provides a description, and includes an example to illustrate how the nonce_endpoint can be included in the Authorization Server Metadata. \r\n",
+      "createdAt": "2024-02-04T01:05:42Z",
+      "updatedAt": "2024-02-04T01:05:42Z",
+      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
+      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRefName": "metadata",
+      "headRefOid": "66ceb59dab631ff0325db72784c7aeae650ebdab",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOKus-lM5l7j50",
+      "title": "added more requirements",
+      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/17",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This update ensures that the Nonce's security and operational characteristics are clearly defined, emphasizing its unpredictability, single-use nature, and limited validity period.\r\n\r\nResolves https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/2",
+      "createdAt": "2024-02-04T01:11:01Z",
+      "updatedAt": "2024-02-04T01:13:26Z",
+      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
+      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRefName": "req1",
+      "headRefOid": "8fac25d8885af91ee63cbc8c982844abc4402b9c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
       "reviews": []
     }
