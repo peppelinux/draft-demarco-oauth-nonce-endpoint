@@ -3,7 +3,7 @@ title: "OAuth 2.0 Nonce Endpoint"
 abbrev: "Nonce Endpoint"
 category: info
 
-docname: draft-demarco-nonce-endpoint-latest
+docname: draft-demarco-oauth-nonce-endpoint-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
