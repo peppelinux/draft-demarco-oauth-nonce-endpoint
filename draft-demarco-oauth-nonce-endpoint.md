@@ -25,6 +25,10 @@ author:
     fullname: Giuseppe De Marco
     organization: Independent
     email: demarcog83@gmail.com
+ -
+    fullname: Orie Steele
+    organization: Transmute
+    email: orie@transmute.industries
 
 normative:
   RFC2119: RFC2119
