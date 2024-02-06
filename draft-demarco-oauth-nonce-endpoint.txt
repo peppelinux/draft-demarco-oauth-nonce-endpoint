@@ -4,12 +4,12 @@
 
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
-Intended status: Informational                          21 November 2023
-Expires: 24 May 2024
+Intended status: Informational                           6 February 2024
+Expires: 9 August 2024
 
 
                         OAuth 2.0 Nonce Endpoint
-                  draft-demarco-nonce-endpoint-latest
+               draft-demarco-oauth-nonce-endpoint-latest
 
 Abstract
 
@@ -26,8 +26,8 @@ About This Document
    The latest revision of this draft can be found at
    https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-
    demarco-nonce-endpoint.html.  Status information for this document
-   may be found at https://datatracker.ietf.org/doc/draft-demarco-nonce-
-   endpoint/.
+   may be found at https://datatracker.ietf.org/doc/draft-demarco-oauth-
+   nonce-endpoint/.
 
    Source for this draft and an issue tracker can be found at
    https://github.com/peppelinux/draft-demarco-nonce-endpoint.
@@ -47,11 +47,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 May 2024.
+   This Internet-Draft will expire on 9 August 2024.
 
 Copyright Notice
 
-   Copyright (c) 2023 IETF Trust and the persons identified as the
+   Copyright (c) 2024 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -358,12 +358,16 @@ Table of Contents
 12.2.  Informative References
 
    [BCP195]   Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
-              1.1", BCP 195, RFC 8996, March 2021.
+              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
+              <https://www.rfc-editor.org/info/rfc8996>.
 
               Sheffer, Y., Saint-Andre, P., and T. Fossati,
               "Recommendations for Secure Use of Transport Layer
               Security (TLS) and Datagram Transport Layer Security
-              (DTLS)", BCP 195, RFC 9325, November 2022.
+              (DTLS)", BCP 195, RFC 9325, DOI 10.17487/RFC9325, November
+              2022, <https://www.rfc-editor.org/info/rfc9325>.
+
+              <https://www.rfc-editor.org/info/bcp195>
 
 Acknowledgments
 
