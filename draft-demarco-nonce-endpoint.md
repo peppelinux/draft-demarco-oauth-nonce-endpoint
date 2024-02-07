@@ -103,14 +103,12 @@ of OAuth 2.0 implementations.
 Client                Nonce Endpoint                Server
   |                           |                        |
   |--- GET /nonce ----------->|                        |
-  |                           |--- Generate Nonce ---> |
-  |                           |<-- Nonce ------------- |
   |<-- Nonce -----------------|                        |
   |                           |                        |
   |--- Request with Nonce --->|----------------------->|
   |                           |                        |--- Validate Nonce --->
   |                           |                        |<-- Validation OK ---- |
-  |                           |<-----------------------|                        |
+  |                           |<-----------------------|                        
   |                           |                        |
 ~~~~
 
