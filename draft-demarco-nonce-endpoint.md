@@ -106,8 +106,8 @@ Client                Nonce Endpoint                Server
   |<-- Nonce -----------------|                        |
   |                           |                        |
   |--- Request with Nonce --->|----------------------->|
-  |                           |                        |--- Validate Nonce --->
-  |                           |                        |<-- Validation OK ---- |
+  |                           |                        |-- Check - >
+  |                           |                        |<-- OK ----|
   |                           |<-----------------------|                        
   |                           |                        |
 ~~~~
