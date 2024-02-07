@@ -4,8 +4,8 @@
 
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
-Intended status: Informational                           4 February 2024
-Expires: 7 August 2024
+Intended status: Informational                           7 February 2024
+Expires: 10 August 2024
 
 
                         OAuth 2.0 Nonce Endpoint
@@ -47,7 +47,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 August 2024.
+   This Internet-Draft will expire on 10 August 2024.
 
 Copyright Notice
 
@@ -129,7 +129,8 @@ Table of Contents
 
    *  It MUST be opaque to receiving Clients.
 
-   *  It MUST be unguessable, by cryptographic randomness or encryption.
+   *  It MUST be made unguessable through the use of cryptographic
+      randomness.
 
    *  It MUST be used once and for a short time.
 
