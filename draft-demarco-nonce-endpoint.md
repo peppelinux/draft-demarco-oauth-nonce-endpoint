@@ -70,7 +70,8 @@ The **Nonce** MUST satisfy the following requirements:
 
 - It MUST be opaque to receiving Clients.
 - It MUST be made unguessable through the use of cryptographic randomness.
-- It MUST be used once and for a short time.
+- It MUST be used once.
+- It MUST have a short validity period.
 
 The **Nonce Issuer** MUST satisfy the following requirements:
 
