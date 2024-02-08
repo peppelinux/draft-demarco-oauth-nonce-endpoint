@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-06T00:27:29.601536+00:00",
-  "repo": "peppelinux/draft-demarco-nonce-endpoint",
+  "timestamp": "2024-02-08T00:27:26.762451+00:00",
+  "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
       "name": "bug",
@@ -69,7 +69,7 @@
       "number": 1,
       "id": "I_kwDOKus-lM53Yv9d",
       "title": "Review",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/1",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/1",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -88,7 +88,7 @@
       "number": 2,
       "id": "I_kwDOKus-lM53dFuY",
       "title": "Nonce requirements",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/2",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/2",
       "state": "OPEN",
       "author": "fmarino-ipzs",
       "authorAssociation": "CONTRIBUTOR",
@@ -123,7 +123,7 @@
       "number": 6,
       "id": "I_kwDOKus-lM532tKI",
       "title": "payload must include a random value",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/6",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -141,7 +141,7 @@
       "number": 7,
       "id": "I_kwDOKus-lM532tPJ",
       "title": "This endpoint doesn't represent any mitigation againts the replay attacks",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/7",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/7",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -159,7 +159,7 @@
       "number": 8,
       "id": "I_kwDOKus-lM55KGzU",
       "title": "SPICE challenge endpoint",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/8",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/8",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -175,7 +175,7 @@
       "number": 9,
       "id": "I_kwDOKus-lM58nvP7",
       "title": "Where to discover the endpoint?",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/9",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/9",
       "state": "OPEN",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
@@ -218,7 +218,7 @@
       "number": 10,
       "id": "I_kwDOKus-lM59GKhM",
       "title": "What does encrypt mean?",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/10",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/10",
       "state": "OPEN",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
@@ -246,7 +246,7 @@
       "number": 11,
       "id": "I_kwDOKus-lM59GOvQ",
       "title": "Usage with scopes and RAR",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/11",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/11",
       "state": "OPEN",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
@@ -275,7 +275,7 @@
       "number": 12,
       "id": "I_kwDOKus-lM5-Kl17",
       "title": "requesting nonce by scopes",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/12",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/12",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -306,7 +306,7 @@
       "number": 13,
       "id": "I_kwDOKus-lM5-K0uM",
       "title": "Nonce endpoint and ACME newNonce endpoint",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/13",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/13",
       "state": "OPEN",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
@@ -332,7 +332,7 @@
       "number": 3,
       "id": "PR_kwDOKus-lM5gBYNX",
       "title": "Editorial and Update on the Requirements",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/3",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/3",
       "state": "CLOSED",
       "author": "asharif1990",
       "authorAssociation": "CONTRIBUTOR",
@@ -341,7 +341,7 @@
       "body": "I made a pass on the whole document by improving the text and making some changes to the non-normative examples and the requirements. ",
       "createdAt": "2023-11-21T13:29:16Z",
       "updatedAt": "2023-11-21T13:52:15Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "d9e38880a527bf4eefd7425e12674e8e77967104",
       "headRepository": "asharif1990/draft-demarco-nonce-endpoint",
@@ -358,7 +358,7 @@
       "number": 4,
       "id": "PR_kwDOKus-lM5gBlIx",
       "title": "[Editorial and update the requirements]",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/4",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/4",
       "state": "MERGED",
       "author": "asharif1990",
       "authorAssociation": "CONTRIBUTOR",
@@ -367,7 +367,7 @@
       "body": "Editorial and update the requirements",
       "createdAt": "2023-11-21T13:59:45Z",
       "updatedAt": "2023-11-21T15:42:00Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "d9e38880a527bf4eefd7425e12674e8e77967104",
       "headRepository": "asharif1990/draft-demarco-nonce-endpoint",
@@ -440,7 +440,7 @@
       "number": 5,
       "id": "PR_kwDOKus-lM5gC4_g",
       "title": "fix build error",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/5",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/5",
       "state": "MERGED",
       "author": "fmarino-ipzs",
       "authorAssociation": "CONTRIBUTOR",
@@ -449,7 +449,7 @@
       "body": "This PR fixes a build error (nl at the end of the file).",
       "createdAt": "2023-11-21T16:43:54Z",
       "updatedAt": "2023-11-21T23:46:44Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "601b21c19bbdd0875066fc471a4366c1528f672d",
       "headRepository": "fmarino-ipzs/draft-demarco-nonce-endpoint",
@@ -468,105 +468,462 @@
       "number": 14,
       "id": "PR_kwDOKus-lM5l7jGZ",
       "title": "fix: nonce endpoint for AS and any other entity type that might require it",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/14",
-      "state": "OPEN",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/14",
+      "state": "MERGED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "This PR enables any entity in implementing the nonce endpoint and not only the AS",
       "createdAt": "2024-02-04T00:53:26Z",
-      "updatedAt": "2024-02-04T00:53:30Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "updatedAt": "2024-02-07T16:23:14Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
-      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "headRefName": "notonlyas",
       "headRefOid": "dbac6568844a273b423dac308d43aefafd1687c5",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-02-07T16:23:14Z",
+      "mergedAt": "2024-02-07T16:23:14Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "eb6a62200ff6233d8a1ac50870c55aa7a3697049"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5vOOIz",
+          "commit": {
+            "abbreviatedOid": "dbac656"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-06T18:01:43Z",
+          "updatedAt": "2024-02-06T18:01:43Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 15,
       "id": "PR_kwDOKus-lM5l7jZo",
       "title": "added nonce request sequence diagram",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/15",
-      "state": "OPEN",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/15",
+      "state": "MERGED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "A sequence diagram is included in the \"Nonce Request\" section of the document. \r\n\r\nIt visually represents the proactive approach of obtaining a nonce from the nonce endpoint before making a request to the server, thus avoiding the error case where the server requires a nonce that the client did not provide. This approach ensures a smoother interaction flow and enhances the understanding of the nonce acquisition process in the context of OAuth 2.0 implementations.",
       "createdAt": "2024-02-04T01:00:09Z",
-      "updatedAt": "2024-02-04T01:00:09Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "updatedAt": "2024-02-07T16:23:14Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
-      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "headRefName": "seq-diag",
-      "headRefOid": "48fdff9a93230ddec7198f31d32ce5605257b70f",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "bd83c6ea348eaa54741afc7d39990cda9d0ec561",
+      "closedAt": "2024-02-07T16:23:14Z",
+      "mergedAt": "2024-02-07T16:23:14Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "3c5ba995f646ddaef621d746dfe2e90aae99082c"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5vOPB7",
+          "commit": {
+            "abbreviatedOid": "48fdff9"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T18:03:47Z",
+          "updatedAt": "2024-02-06T18:03:48Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\n  |                           |<-----------------------|                       |\r\n```",
+              "createdAt": "2024-02-06T18:03:47Z",
+              "updatedAt": "2024-02-06T18:03:48Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vOPRt",
+          "commit": {
+            "abbreviatedOid": "48fdff9"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T18:04:22Z",
+          "updatedAt": "2024-02-06T18:04:22Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "Seems like a role for the end is missing, which entity does \"nonce validation\" a \"Verifier\" ?",
+              "createdAt": "2024-02-06T18:04:22Z",
+              "updatedAt": "2024-02-06T18:04:23Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vOPUf",
+          "commit": {
+            "abbreviatedOid": "48fdff9"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-06T18:04:28Z",
+          "updatedAt": "2024-02-06T18:04:28Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vWt8J",
+          "commit": {
+            "abbreviatedOid": "48fdff9"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:13:24Z",
+          "updatedAt": "2024-02-07T16:13:24Z",
+          "comments": [
+            {
+              "originalPosition": 21,
+              "body": "copy/paste typo, fixed, thank you",
+              "createdAt": "2024-02-07T16:13:24Z",
+              "updatedAt": "2024-02-07T16:13:24Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 16,
       "id": "PR_kwDOKus-lM5l7jqH",
       "title": "feat: metadata registration",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/16",
-      "state": "OPEN",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/16",
+      "state": "MERGED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "This PR clearly defines the new metadata parameter, provides a description, and includes an example to illustrate how the nonce_endpoint can be included in the Authorization Server Metadata. \r\n",
       "createdAt": "2024-02-04T01:05:42Z",
-      "updatedAt": "2024-02-04T01:05:42Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "updatedAt": "2024-02-07T16:23:14Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
-      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "headRefName": "metadata",
       "headRefOid": "66ceb59dab631ff0325db72784c7aeae650ebdab",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-02-07T16:23:14Z",
+      "mergedAt": "2024-02-07T16:23:14Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "8c2c14ae07ef916b9654f543aee3e8960051b6ad"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5vOP4g",
+          "commit": {
+            "abbreviatedOid": "66ceb59"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-06T18:05:49Z",
+          "updatedAt": "2024-02-06T18:05:49Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 17,
       "id": "PR_kwDOKus-lM5l7j50",
       "title": "added more requirements",
-      "url": "https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/17",
-      "state": "OPEN",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/17",
+      "state": "MERGED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "This update ensures that the Nonce's security and operational characteristics are clearly defined, emphasizing its unpredictability, single-use nature, and limited validity period.\r\n\r\nResolves https://github.com/peppelinux/draft-demarco-nonce-endpoint/issues/2",
       "createdAt": "2024-02-04T01:11:01Z",
-      "updatedAt": "2024-02-04T01:13:26Z",
-      "baseRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "updatedAt": "2024-02-07T18:31:21Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "28ac702f50189d54985a8e57ebe69c96bcd619c1",
-      "headRepository": "peppelinux/draft-demarco-nonce-endpoint",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "headRefName": "req1",
-      "headRefOid": "8fac25d8885af91ee63cbc8c982844abc4402b9c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "ba2a2faba920ff3b9d1802f7e96fdb5124984809",
+      "closedAt": "2024-02-07T18:31:21Z",
+      "mergedAt": "2024-02-07T18:31:21Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "8e3d5840e6344bc78be06a4711e050962bc7f257"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5vOQQV",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T18:06:43Z",
+          "updatedAt": "2024-02-06T18:06:43Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "if we can avoid the \"or\" here, lots of implementation complexity will go away.",
+              "createdAt": "2024-02-06T18:06:43Z",
+              "updatedAt": "2024-02-06T18:06:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vOQXr",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T18:06:59Z",
+          "updatedAt": "2024-02-06T18:07:00Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n- It MUST be encrypted.\r\n```",
+              "createdAt": "2024-02-06T18:07:00Z",
+              "updatedAt": "2024-02-06T18:07:00Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vOQrS",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-06T18:07:44Z",
+          "updatedAt": "2024-02-06T18:07:44Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\n- It MUST have a short validity period\r\n```",
+              "createdAt": "2024-02-06T18:07:44Z",
+              "updatedAt": "2024-02-06T18:07:44Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vOQ-z",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "I think we can possibly make these requirements clearer",
+          "createdAt": "2024-02-06T18:08:30Z",
+          "updatedAt": "2024-02-06T18:08:30Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW14G",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:26:06Z",
+          "updatedAt": "2024-02-07T16:26:07Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n- It MUST be made unguessable through the use of cryptographic randomness.\r\n```",
+              "createdAt": "2024-02-07T16:26:06Z",
+              "updatedAt": "2024-02-07T16:26:07Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW2Dx",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:26:28Z",
+          "updatedAt": "2024-02-07T16:26:29Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "See my proposal below",
+              "createdAt": "2024-02-07T16:26:28Z",
+              "updatedAt": "2024-02-07T16:26:29Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW2vv",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:27:46Z",
+          "updatedAt": "2024-02-07T16:27:46Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "since both short validity and usable once are requirements I propose to split that sentence in two distinct entries, see my proposal below",
+              "createdAt": "2024-02-07T16:27:46Z",
+              "updatedAt": "2024-02-07T16:30:42Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW2xi",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:27:49Z",
+          "updatedAt": "2024-02-07T16:27:49Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\n- It MUST be used once.\r\n- It MUST have a short validity period.\r\n```",
+              "createdAt": "2024-02-07T16:27:49Z",
+              "updatedAt": "2024-02-07T16:27:49Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW4ml",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:30:05Z",
+          "updatedAt": "2024-02-07T16:30:05Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "see https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/17/files#r1481755422",
+              "createdAt": "2024-02-07T16:30:05Z",
+              "updatedAt": "2024-02-07T16:30:05Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW4zB",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:30:27Z",
+          "updatedAt": "2024-02-07T16:30:27Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/17/files#r1481755422",
+              "createdAt": "2024-02-07T16:30:27Z",
+              "updatedAt": "2024-02-07T16:30:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vW5BW",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T16:30:50Z",
+          "updatedAt": "2024-02-07T16:30:51Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/17/files#r1481757786",
+              "createdAt": "2024-02-07T16:30:51Z",
+              "updatedAt": "2024-02-07T16:30:51Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vXTdG",
+          "commit": {
+            "abbreviatedOid": "8fac25d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-02-07T17:20:04Z",
+          "updatedAt": "2024-02-07T17:20:04Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "I'll take this, but I still think we could be clearer, this is very open ended... which is undesirable IMO.",
+              "createdAt": "2024-02-07T17:20:04Z",
+              "updatedAt": "2024-02-07T17:20:04Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM5vXTqX",
+          "commit": {
+            "abbreviatedOid": "ba2a2fa"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-07T17:20:31Z",
+          "updatedAt": "2024-02-07T17:20:31Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
