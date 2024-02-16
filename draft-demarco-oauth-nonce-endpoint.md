@@ -41,7 +41,7 @@ informative:
   BCP195: BCP195
 
 --- abstract
-This document defines the Nonce Endpoint for OAuth 2.0 implementations [RFC6749]. It details how an Authorization Server generates and issues opaque Nonces and how a client can learn about this endpoint to obtain a Nonce generated an Authorization Server or another entity.
+This document defines the Nonce Endpoint for OAuth 2.0 implementations [RFC6749]. It details how a Server generates and issues opaque Nonces and how a client can learn about this endpoint to obtain the Nonce.
 
 --- middle
 
