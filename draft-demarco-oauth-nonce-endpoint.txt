@@ -5,8 +5,8 @@
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
 Intended status: Informational                                 O. Steele
-Expires: 10 August 2024                                        Transmute
-                                                         7 February 2024
+Expires: 22 August 2024                                        Transmute
+                                                        19 February 2024
 
 
                         OAuth 2.0 Nonce Endpoint
@@ -14,11 +14,9 @@ Expires: 10 August 2024                                        Transmute
 
 Abstract
 
-   This document defines the Nonce Endpoint for OAuth 2.0
-   implementations [RFC6749].  It details how an Authorization Server
+   This document defines a Nonce Endpoint and details how a Server
    generates and issues opaque Nonces and how a client can learn about
-   this endpoint to obtain a Nonce generated an Authorization Server or
-   another entity.
+   this endpoint to obtain the Nonce.
 
 About This Document
 
@@ -48,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2024.
+   This Internet-Draft will expire on 22 August 2024.
 
 Copyright Notice
 
@@ -428,14 +426,12 @@ Table of Contents
 13.2.  Informative References
 
    [BCP195]   Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
-              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
-              <https://www.rfc-editor.org/info/rfc8996>.
+              1.1", BCP 195, RFC 8996, March 2021.
 
               Sheffer, Y., Saint-Andre, P., and T. Fossati,
               "Recommendations for Secure Use of Transport Layer
               Security (TLS) and Datagram Transport Layer Security
-              (DTLS)", BCP 195, RFC 9325, DOI 10.17487/RFC9325, November
-              2022, <https://www.rfc-editor.org/info/rfc9325>.
+              (DTLS)", BCP 195, RFC 9325, November 2022.
 
               <https://www.rfc-editor.org/info/bcp195>
 
