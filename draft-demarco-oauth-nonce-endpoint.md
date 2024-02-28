@@ -1,5 +1,5 @@
 ---
-title: "OAuth 2.0 Nonce Endpoint"
+title: "The Nonce Endpoint"
 abbrev: "Nonce Endpoint"
 category: info
 
@@ -17,8 +17,8 @@ venue:
 #  group: WG
 #  type: Working Group
 #  mail: demarcog83@gmail.com
-  github: "peppelinux/draft-demarco-nonce-endpoint"
-  latest: "https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-demarco-nonce-endpoint.html"
+  github: "peppelinux/draft-demarco-oauth-nonce-endpoint"
+  latest: "https://peppelinux.github.io/draft-demarco-oauth-nonce-endpoint/draft-demarco-oauth-nonce-endpoint.html"
 
 author:
  -
@@ -47,7 +47,7 @@ This document defines a Nonce Endpoint and details how a Server generates and is
 
 # Introduction
 
-This specification presents a comprehensive guide to the Nonce endpoint in OAuth 2.0 implementations [RFC6749]. It describes in detail how a client can request and receive a server-generated Nonce, which is a unique, one-time use, opaque string. This document provides in-depth insights into the cryptographic methods used in generating Nonces to protect the confidentiality of the information associated with them. In addition, it is a resource for developers and system architects who desire to strengthen the scalability, security, and efficiency of their systems while using OAuth 2.0.
+This specification presents a comprehensive guide to the Nonce endpoint. It describes in detail how a client can request and receive a server-generated Nonce, which is a unique, one-time use, opaque string. This document provides in-depth insights into the cryptographic methods used in generating Nonces to protect the confidentiality of the information associated with them. In addition, it serves as a resource for developers and system architects who aim to enhance the scalability, security, and efficiency of their systems.
 
 # Conventions and Definitions
 
@@ -59,7 +59,7 @@ This specification presents a comprehensive guide to the Nonce endpoint in OAuth
 :  A random or pseudo-random number that is generated for a specific use, typically for cryptographic communication. The Nonce is used to protect against replay attacks by ensuring that a message or data cannot be reused or retransmitted. The term "Nonce" stands for "number used once" and it MUST be unique within some scope.
 
 **Nonce Issuer**:
-:  The entity that generates and provides the Nonce. In the context of OAuth 2.0, the Nonce Issuer would typically be the Authorization Server.
+:  The entity that generates and provides the Nonce. The Nonce Issuer would typically be the Authorization Server.
 
 **Nonce Endpoint**:
 :  The HTTP endpoint provided by the Nonce Issuer for the issuance of the Nonces.
@@ -132,8 +132,7 @@ Host: server.example.com
 Below a sequence diagram represents the proactive approach of obtaining a Nonce from the Nonce endpoint
 before making a request to the server, thus avoiding the error case where the server requires a
 nonce that the Client did not provide. This approach illustrated below ensures a smoother
-interaction flow and enhances the understanding of the Nonce acquisition process in the context
-of OAuth 2.0 implementations.
+interaction flow and enhances the understanding of the Nonce acquisition process.
 
 ~~~~
 Client                Nonce Endpoint                Server
