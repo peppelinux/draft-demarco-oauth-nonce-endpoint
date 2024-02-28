@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>OAuth 2.0 Nonce Endpoint</title>
+<title>The Nonce Endpoint</title>
 <meta content="Giuseppe De Marco" name="author">
 <meta content="Orie Steele" name="author">
 <meta content="
@@ -1030,7 +1030,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Marco &amp; Steele</td>
-<td class="center">Expires 22 August 2024</td>
+<td class="center">Expires 31 August 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1043,12 +1043,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-demarco-oauth-nonce-endpoint-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-02-19" class="published">19 February 2024</time>
+<time datetime="2024-02-28" class="published">28 February 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-08-22">22 August 2024</time></dd>
+<dd class="expires"><time datetime="2024-08-31">31 August 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1062,7 +1062,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">OAuth 2.0 Nonce Endpoint</h1>
+<h1 id="title">The Nonce Endpoint</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document defines a Nonce Endpoint and details how a Server generates and issues opaque Nonces and how a client can learn about this endpoint to obtain the Nonce.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
@@ -1073,10 +1073,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-demarco-nonce-endpoint.html">https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-demarco-nonce-endpoint.html</a></span>.
+        The latest revision of this draft can be found at <span><a href="https://peppelinux.github.io/draft-demarco-oauth-nonce-endpoint/draft-demarco-oauth-nonce-endpoint.html">https://peppelinux.github.io/draft-demarco-oauth-nonce-endpoint/draft-demarco-oauth-nonce-endpoint.html</a></span>.
         Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-demarco-oauth-nonce-endpoint/">https://datatracker.ietf.org/doc/draft-demarco-oauth-nonce-endpoint/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/peppelinux/draft-demarco-nonce-endpoint">https://github.com/peppelinux/draft-demarco-nonce-endpoint</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint">https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1097,7 +1097,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 22 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 31 August 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1198,7 +1198,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">This specification presents a comprehensive guide to the Nonce endpoint in OAuth 2.0 implementations <span>[<a href="#RFC6749" class="cite xref">RFC6749</a>]</span>. It describes in detail how a client can request and receive a server-generated Nonce, which is a unique, one-time use, opaque string. This document provides in-depth insights into the cryptographic methods used in generating Nonces to protect the confidentiality of the information associated with them. In addition, it is a resource for developers and system architects who desire to strengthen the scalability, security, and efficiency of their systems while using OAuth 2.0.<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">This specification presents a comprehensive guide to the Nonce endpoint. It describes in detail how a client can request and receive a server-generated Nonce, which is a unique, one-time use, opaque string. This document provides in-depth insights into the cryptographic methods used in generating Nonces to protect the confidentiality of the information associated with them. In addition, it serves as a resource for developers and system architects who aim to enhance the scalability, security, and efficiency of their systems.<a href="#section-1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1227,7 +1227,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <dt id="section-3-1.3">
 <strong>Nonce Issuer</strong>:</dt>
         <dd style="margin-left: 1.5em" id="section-3-1.4">
-          <p id="section-3-1.4.1">The entity that generates and provides the Nonce. In the context of OAuth 2.0, the Nonce Issuer would typically be the Authorization Server.<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
+          <p id="section-3-1.4.1">The entity that generates and provides the Nonce. The Nonce Issuer would typically be the Authorization Server.<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-3-1.5">
@@ -1354,8 +1354,7 @@ Host: server.example.com
 <p id="section-6-4">Below a sequence diagram represents the proactive approach of obtaining a Nonce from the Nonce endpoint
 before making a request to the server, thus avoiding the error case where the server requires a
 nonce that the Client did not provide. This approach illustrated below ensures a smoother
-interaction flow and enhances the understanding of the Nonce acquisition process in the context
-of OAuth 2.0 implementations.<a href="#section-6-4" class="pilcrow">¶</a></p>
+interaction flow and enhances the understanding of the Nonce acquisition process.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-6-5">
 <pre>
 Client                Nonce Endpoint                Server

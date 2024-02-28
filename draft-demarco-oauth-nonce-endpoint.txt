@@ -5,11 +5,11 @@
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
 Intended status: Informational                                 O. Steele
-Expires: 22 August 2024                                        Transmute
-                                                        19 February 2024
+Expires: 31 August 2024                                        Transmute
+                                                        28 February 2024
 
 
-                        OAuth 2.0 Nonce Endpoint
+                           The Nonce Endpoint
                draft-demarco-oauth-nonce-endpoint-latest
 
 Abstract
@@ -23,13 +23,13 @@ About This Document
    This note is to be removed before publishing as an RFC.
 
    The latest revision of this draft can be found at
-   https://peppelinux.github.io/draft-demarco-nonce-endpoint/draft-
-   demarco-nonce-endpoint.html.  Status information for this document
-   may be found at https://datatracker.ietf.org/doc/draft-demarco-oauth-
-   nonce-endpoint/.
+   https://peppelinux.github.io/draft-demarco-oauth-nonce-endpoint/
+   draft-demarco-oauth-nonce-endpoint.html.  Status information for this
+   document may be found at https://datatracker.ietf.org/doc/draft-
+   demarco-oauth-nonce-endpoint/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/peppelinux/draft-demarco-nonce-endpoint.
+   https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint.
 
 Status of This Memo
 
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 22 August 2024.
+   This Internet-Draft will expire on 31 August 2024.
 
 Copyright Notice
 
@@ -87,14 +87,14 @@ Table of Contents
 1.  Introduction
 
    This specification presents a comprehensive guide to the Nonce
-   endpoint in OAuth 2.0 implementations [RFC6749].  It describes in
-   detail how a client can request and receive a server-generated Nonce,
-   which is a unique, one-time use, opaque string.  This document
-   provides in-depth insights into the cryptographic methods used in
-   generating Nonces to protect the confidentiality of the information
-   associated with them.  In addition, it is a resource for developers
-   and system architects who desire to strengthen the scalability,
-   security, and efficiency of their systems while using OAuth 2.0.
+   endpoint.  It describes in detail how a client can request and
+   receive a server-generated Nonce, which is a unique, one-time use,
+   opaque string.  This document provides in-depth insights into the
+   cryptographic methods used in generating Nonces to protect the
+   confidentiality of the information associated with them.  In
+   addition, it serves as a resource for developers and system
+   architects who aim to enhance the scalability, security, and
+   efficiency of their systems.
 
 2.  Conventions and Definitions
 
@@ -114,8 +114,7 @@ Table of Contents
       some scope.
 
    *Nonce Issuer*:  The entity that generates and provides the Nonce.
-      In the context of OAuth 2.0, the Nonce Issuer would typically be
-      the Authorization Server.
+      The Nonce Issuer would typically be the Authorization Server.
 
    *Nonce Endpoint*:  The HTTP endpoint provided by the Nonce Issuer for
       the issuance of the Nonces.
@@ -213,8 +212,7 @@ Table of Contents
    the server, thus avoiding the error case where the server requires a
    nonce that the Client did not provide.  This approach illustrated
    below ensures a smoother interaction flow and enhances the
-   understanding of the Nonce acquisition process in the context of
-   OAuth 2.0 implementations.
+   understanding of the Nonce acquisition process.
 
    Client                Nonce Endpoint                Server
      |                           |                        |
