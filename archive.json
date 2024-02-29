@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-02-27T00:27:20.548345+00:00",
+  "timestamp": "2024-02-29T00:27:34.759458+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -176,7 +176,7 @@
       "id": "I_kwDOKus-lM58nvP7",
       "title": "Where to discover the endpoint?",
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "OR13",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -188,8 +188,8 @@
       ],
       "body": "Should there be guidance on where the endpoint can be discovered?\r\n\r\nIncluding but not limited to:\r\n\r\n- `.well-known/jwt-vc-issuer`\r\n- `.well-known/openid-configuration`\r\n\r\n...",
       "createdAt": "2024-01-19T15:33:09Z",
-      "updatedAt": "2024-02-04T01:15:23Z",
-      "closedAt": null,
+      "updatedAt": "2024-02-28T08:34:54Z",
+      "closedAt": "2024-02-28T08:34:54Z",
       "comments": [
         {
           "author": "peppelinux",
@@ -211,6 +211,13 @@
           "body": "See https://github.com/peppelinux/draft-demarco-nonce-endpoint/pull/16",
           "createdAt": "2024-02-04T01:06:37Z",
           "updatedAt": "2024-02-04T01:06:37Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "Closed by https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/16",
+          "createdAt": "2024-02-28T08:34:54Z",
+          "updatedAt": "2024-02-28T08:34:54Z"
         }
       ]
     },
@@ -323,6 +330,51 @@
           "body": "Support for GET is required in acme.\n\nI wonder why they chose to support both.",
           "createdAt": "2024-02-04T00:42:40Z",
           "updatedAt": "2024-02-04T00:43:00Z"
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "I_kwDOKus-lM6An42t",
+      "title": "The I-D is OAuth specific",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/20",
+      "state": "OPEN",
+      "author": "henkbirkholz",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The I-D is currently OAuth specific, but it seems to address a quite generic problem. Would it be possible, for example, to rephrase the proposal in a way that renders it more general and then make OAuth one usage scenario for it (by mappng it to OAuth roles and interactions)?",
+      "createdAt": "2024-02-28T02:13:04Z",
+      "updatedAt": "2024-02-28T12:11:31Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "There was some discussion on previous pull requests.\n\nI think it's possible to make this generic, and if there are other documents that would cite it or use it if it were more generic, it would be good to know where they are, or what parts would need to change to enable that.",
+          "createdAt": "2024-02-28T02:20:59Z",
+          "updatedAt": "2024-02-28T02:20:59Z"
+        },
+        {
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "body": "See https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/19#discussion_r1494858656",
+          "createdAt": "2024-02-28T02:22:19Z",
+          "updatedAt": "2024-02-28T02:22:19Z"
+        },
+        {
+          "author": "henkbirkholz",
+          "authorAssociation": "NONE",
+          "body": "I was following :sparkle: crumbs, because I saw this I-D: https://datatracker.ietf.org/doc/draft-tschofenig-lamps-nonce-cmp-est/ which seems to try to solve a similar problem.\r\nAlso there are more complex things than nonces, for example, https://datatracker.ietf.org/doc/draft-birkholz-rats-epoch-markers/ which can be seen as opaque bytes - or - dedicatedly discovered by type and requested.",
+          "createdAt": "2024-02-28T02:37:13Z",
+          "updatedAt": "2024-02-28T02:37:13Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "See https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/21\r\n\r\nthe nonce endpoints aims not to be exclusively tied to OAuth 2.0. Implementations decide to use it with OAuth 2.0 implementations or even as a non-public resource, then internally in their infrastructure (TODO: add this use cases and a sequence diagram).\r\n\r\nit also aims to define a simple and general purpose approach, taking out from its scope all the additional features and services that might require it, the nonce endpoint just returns nonces.\r\n\r\nSee also this: https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/21\r\n\r\nwe know that nonces are part of several, monolithic, specifications, while in this specification we aims to define a general purpose nonce endpoint, to be used for different purposes.\r\n\r\nThere's an interesting suggestion made by Mike that brings the requirement to request and provide nonces by scopes: https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/12, this kind of things are of interest for the \"general purpose\" nonce endpoint\r\n\r\nthank you @henkbirkholz for having added additional resources where we can see the experience behind the nonces endpoint implementations, these are really helpfull\r\n",
+          "createdAt": "2024-02-28T12:11:29Z",
+          "updatedAt": "2024-02-28T12:11:29Z"
         }
       ]
     }
@@ -1297,6 +1349,61 @@
               "updatedAt": "2024-02-19T17:16:19Z"
             }
           ]
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOKus-lM5oI_4a",
+      "title": "chore: OAuth 2.0 not a dependency",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/21",
+      "state": "MERGED",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Exploring beyond OAuth 2.0 as a singular solution opens a realm of possibilities, inviting innovation and tailored security strategies to meet diverse needs. This editorial stance champions flexibility and the pursuit of bespoke, resilient architectures.",
+      "createdAt": "2024-02-28T08:23:59Z",
+      "updatedAt": "2024-02-28T15:18:39Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "c61225b3dc7c940e07a7b00e7ef59f00bfe9a09e",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "headRefName": "noauth",
+      "headRefOid": "5871274d81b03eea65114e5d0afea8fa6e53e151",
+      "closedAt": "2024-02-28T15:18:39Z",
+      "mergedAt": "2024-02-28T15:18:39Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "d9e165028a87afeaa61982808c154ee511861c9c"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5xnfpb",
+          "commit": {
+            "abbreviatedOid": "5871274"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-28T12:44:49Z",
+          "updatedAt": "2024-02-28T12:44:49Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOKus-lM5xoWK4",
+          "commit": {
+            "abbreviatedOid": "5871274"
+          },
+          "author": "giadas",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-02-28T14:22:53Z",
+          "updatedAt": "2024-02-28T14:22:53Z",
+          "comments": []
         }
       ]
     }
