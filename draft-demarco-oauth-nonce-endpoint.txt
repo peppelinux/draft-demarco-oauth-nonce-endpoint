@@ -5,8 +5,8 @@
 Network Working Group                                        G. D. Marco
 Internet-Draft                                               Independent
 Intended status: Informational                                 O. Steele
-Expires: 31 August 2024                                        Transmute
-                                                        28 February 2024
+Expires: 20 October 2024                                       Transmute
+                                                           18 April 2024
 
 
                            The Nonce Endpoint
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 August 2024.
+   This Internet-Draft will expire on 20 October 2024.
 
 Copyright Notice
 
@@ -281,16 +281,16 @@ Table of Contents
 
 9.  Non-normative Examples of a Nonce Payload
 
-   The decrypted Nonce payload may use different formats and encodings,
-   according to the different implemententative requirements, and
-   contains any kind of implementation-specific claims, such as the
-   issuance time, the time of expiration, the audiences and other where
-   needed.
+   The decrypted Nonce payload MAY use different formats and encodings,
+   according to the different implementation requirements and contain
+   any kind of implementation-specific claims, such as the issuance
+   time, the time of expiration, the audiences and others where needed.
 
    Below are provided some non-normative examples, describing how a
-   decrypted and JSON serialized Nonce payload may appear:
+   decrypted and JSON serialized Nonce payload MAY appear:
 
    {
+     "jti": "0452767d-549d-4765-bd43-a0bcc2a6659a",
      "iss": "https://server.example.org",
      "iat": 1615908701,
      "exp": 1615995101,
@@ -301,9 +301,13 @@ Table of Contents
      ]
    }
 
-   Please note that the values represented in the previous examples may
-   depend on domain specific requirements and MUST NOT be intended as
-   normative.
+   Please note that the values represented in the previous examples are
+   informative.
+
+   In any case, the payload MUST include some unique value ("jti" on the
+   example above), typically generated using a pseudo-random number
+   generator with sufficient entropy [RFC4086], to ensure that the
+   encrypted digest (the actual Nonce) is also unique.
 
 10.  Security Considerations
 
@@ -400,6 +404,11 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
+   [RFC4086]  Eastlake 3rd, D., Schiller, J., and S. Crocker,
+              "Randomness Requirements for Security", BCP 106, RFC 4086,
+              DOI 10.17487/RFC4086, June 2005,
+              <https://www.rfc-editor.org/rfc/rfc4086>.
+
    [RFC5246]  Dierks, T. and E. Rescorla, "The Transport Layer Security
               (TLS) Protocol Version 1.2", RFC 5246,
               DOI 10.17487/RFC5246, August 2008,
@@ -423,15 +432,19 @@ Table of Contents
 
 13.2.  Informative References
 
-   [BCP195]   Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
-              1.1", BCP 195, RFC 8996, March 2021.
+   [BCP195]   Best Current Practice 195,
+              <https://www.rfc-editor.org/info/bcp195>.
+              At the time of writing, this BCP comprises the following:
+
+              Moriarty, K. and S. Farrell, "Deprecating TLS 1.0 and TLS
+              1.1", BCP 195, RFC 8996, DOI 10.17487/RFC8996, March 2021,
+              <https://www.rfc-editor.org/info/rfc8996>.
 
               Sheffer, Y., Saint-Andre, P., and T. Fossati,
               "Recommendations for Secure Use of Transport Layer
               Security (TLS) and Datagram Transport Layer Security
-              (DTLS)", BCP 195, RFC 9325, November 2022.
-
-              <https://www.rfc-editor.org/info/bcp195>
+              (DTLS)", BCP 195, RFC 9325, DOI 10.17487/RFC9325, November
+              2022, <https://www.rfc-editor.org/info/rfc9325>.
 
 Acknowledgments
 
