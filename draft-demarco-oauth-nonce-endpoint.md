@@ -256,6 +256,8 @@ This document has no IANA actions.
 {:numbered="false"}
 
 - Marina Adomeit
+- Francesco Grauso
+- Francesco Marino
 - Mike Jones
 - Mikel Pintor
 - Giada Sciarretta
