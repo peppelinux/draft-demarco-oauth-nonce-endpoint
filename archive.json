@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-16T00:27:53.809958+00:00",
+  "timestamp": "2024-04-18T00:27:59.948819+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -151,9 +151,24 @@
       "labels": [],
       "body": "writing this draft I found the evidence that there was a false assumption about how the nonce would be better than jti (using client_id+jti-value) in preventing replay attacks when the nonces doesn't requires a shared storage.\r\n\r\nit seems so evident right now that even if the nonce is encrypted and not shared between multiple nodes, this doesn't prevent the replay attacks if, once issued and used to a specific endpoint by a client, it must then be saved in a shared storage between the nodes to actually prevents replay attacks.\r\n\r\nThen all the assumption about how the nonce is considered more smart and scalable than the jti failed.\r\n\r\nwe can only say that nonce is issued by AS while jti by client, but against the replay attacks a shared storage between the nodes MUST always be provided.",
       "createdAt": "2023-11-25T23:38:50Z",
-      "updatedAt": "2024-01-24T20:01:27Z",
+      "updatedAt": "2024-04-17T20:08:06Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "millenc",
+          "authorAssociation": "NONE",
+          "body": "> we can only say that nonce is issued by AS while jti by client, but against the replay attacks a shared storage between the nodes MUST always be provided.\r\n\r\nIf this holds true (it SHOULD), why would we need to obtain the nonce by encrypting some payload? The nonce may very well be a random unique opaque value that the Authorization Server stores at least until it's validity time expires. Every time the Authorization Server \"sees\" a nonce (included on any request) it MUST retrieve it from storage and mark it as \"used\" so subsequent requests can't include that same nonce.\r\n\r\nIf the nonce can't be found on storage it means it wasn't originally minted by the server or it has expired and a `nonce_required` error MUST be returned to the client. If the server wants the nonce to NOT be an opaque string it's fine to do so (this SHOULD be an implementation detail). Similar to how `access_token`s on OAuth2.0 are meant to be opaque but there also exists a [JWT profile](https://datatracker.ietf.org/doc/html/rfc9068) for them.\r\n\r\nIf this is the case, the spec MAY be simplified by removing the requirements related to encryption and the non-normative examples of nonce payloads.",
+          "createdAt": "2024-04-17T16:04:56Z",
+          "updatedAt": "2024-04-17T16:04:56Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "there are some cases where the nonce payload are useful to get additional information about the context, the scopes. As we know the nonce is always contextual, while this specification brings the nonce in a separate and general purpose endpoint.\r\n\r\nin addition to this, having an encrypted payload with an exp claim, all the expired nonce would be simply pruned from the shared storage (using a mondb/redis ttl for instance)",
+          "createdAt": "2024-04-17T20:08:06Z",
+          "updatedAt": "2024-04-17T20:08:06Z"
+        }
+      ]
     },
     {
       "number": 8,
@@ -375,6 +390,30 @@
           "body": "See https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/21\r\n\r\nthe nonce endpoints aims not to be exclusively tied to OAuth 2.0. Implementations decide to use it with OAuth 2.0 implementations or even as a non-public resource, then internally in their infrastructure (TODO: add this use cases and a sequence diagram).\r\n\r\nit also aims to define a simple and general purpose approach, taking out from its scope all the additional features and services that might require it, the nonce endpoint just returns nonces.\r\n\r\nSee also this: https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/21\r\n\r\nwe know that nonces are part of several, monolithic, specifications, while in this specification we aims to define a general purpose nonce endpoint, to be used for different purposes.\r\n\r\nThere's an interesting suggestion made by Mike that brings the requirement to request and provide nonces by scopes: https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/12, this kind of things are of interest for the \"general purpose\" nonce endpoint\r\n\r\nthank you @henkbirkholz for having added additional resources where we can see the experience behind the nonces endpoint implementations, these are really helpfull\r\n",
           "createdAt": "2024-02-28T12:11:29Z",
           "updatedAt": "2024-02-28T12:11:29Z"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "I_kwDOKus-lM6GBe-u",
+      "title": "Uniqueness of nonces of non-normative examples",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/22",
+      "state": "OPEN",
+      "author": "millenc",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Maybe this is a nitpick but on section [8. Non-normative Examples of a Nonce Payload](https://www.ietf.org/archive/id/draft-demarco-oauth-nonce-endpoint-00.html#name-non-normative-examples-of-a) the following nonce payload is shown as example:\r\n\r\n```json\r\n{\r\n  \"iss\": \"https://server.example.org\",\r\n  \"iat\": 1615908701,\r\n  \"exp\": 1615995101,\r\n  \"source_endpoint\": \"https://server.example.org/nonce-endpoint\",\r\n  \"aud\": [\r\n    \"https://service.example.com/endpoint\",\r\n    \"https://another.example.com/cb\"\r\n  ]\r\n}\r\n```\r\n\r\nIf an Authorization Server encrypts a payload such as this to obtain a nonce it could end up generating non-unique values if multiple requests are served at the same time (second). The only claims in this JSON object that are subject to change are `iat` and `exp`, which are defined as [NumericDate](https://www.rfc-editor.org/rfc/rfc7519#section-2) (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.).\r\n\r\nSince uniqueness is a hard requirement for nonces to fulfill their intended purpose, I think it would be best if this non-normative example includes some actual random value (such as the `jti` claim with a UUID for example).",
+      "createdAt": "2024-04-17T15:09:41Z",
+      "updatedAt": "2024-04-17T18:17:05Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "I agree with you, therefore the `jti` claim should be included in the payload.\r\n\r\nthis issue is duplicate with https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6, however I appreciate your analysis.\r\n\r\nI'll add this change before the end of this weekend.\r\n\r\nat the same time, if you want to propose a PR, I would be glad to review it and add you as formal contributor of this brand new specs\r\n\r\n",
+          "createdAt": "2024-04-17T18:17:05Z",
+          "updatedAt": "2024-04-17T18:17:05Z"
         }
       ]
     }
