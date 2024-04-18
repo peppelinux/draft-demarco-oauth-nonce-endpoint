@@ -32,6 +32,7 @@ author:
 
 normative:
   RFC2119: RFC2119
+  RFC4086: RFC4086
   RFC5246: RFC5246
   RFC6749: RFC6749
   RFC7159: RFC7159
@@ -187,12 +188,13 @@ In cases where, for some reasons, a correctly issued Nonce can no longer be cons
 
 # Non-normative Examples of a Nonce Payload
 
-The decrypted Nonce payload may use different formats and encodings, according to the different implemententative requirements, and contains any kind of implementation-specific claims, such as the issuance time, the time of expiration, the audiences and other where needed.
+The decrypted Nonce payload MAY use different formats and encodings, according to the different implementation requirements and contain any kind of implementation-specific claims, such as the issuance time, the time of expiration, the audiences and others where needed.
 
-Below are provided some non-normative examples, describing how a decrypted and JSON serialized Nonce payload may appear:
+Below are provided some non-normative examples, describing how a decrypted and JSON serialized Nonce payload MAY appear:
 
 ~~~~
 {
+  "jti": "0452767d-549d-4765-bd43-a0bcc2a6659a",
   "iss": "https://server.example.org",
   "iat": 1615908701,
   "exp": 1615995101,
@@ -204,7 +206,9 @@ Below are provided some non-normative examples, describing how a decrypted and J
 }
 ~~~~
 
-Please note that the values represented in the previous examples may depend on domain specific requirements and MUST NOT be intended as normative.
+Please note that the values represented in the previous examples are informative.
+
+In any case, the payload MUST include some unique value (`"jti"` on the example above), typically generated using a pseudo-random number generator with sufficient entropy [RFC4086], to ensure that the encrypted digest (the actual Nonce) is also unique.
 
 # Security Considerations
 
@@ -252,4 +256,3 @@ This document has no IANA actions.
 {:numbered="false"}
 
 TODO acknowledge.
-
