@@ -206,7 +206,7 @@ Below are provided some non-normative examples, describing how a decrypted and J
 }
 ~~~~
 
-Please note that the values represented in the previous examples MAY depend on domain specific requirements and MUST NOT be intended as normative.
+Please note that the values represented in the previous examples are informative.
 
 In any case, the payload MUST include some unique value (`"jti"` on the example above), typically generated using a pseudo-random number generator with sufficient entropy [RFC4086], to ensure that the encrypted digest (the actual Nonce) is also unique.
 
