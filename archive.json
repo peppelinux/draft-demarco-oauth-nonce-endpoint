@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-04-18T00:27:59.948819+00:00",
+  "timestamp": "2024-04-21T00:31:04.962947+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -124,7 +124,7 @@
       "id": "I_kwDOKus-lM532tKI",
       "title": "payload must include a random value",
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [
@@ -133,8 +133,8 @@
       "labels": [],
       "body": "two different http requests to the nonce endpoint MUST generate responses containing two different nonces, because it must not be possibile to obtain the same nonce in the multiverse of the nonces.\r\n\r\na random value in the payload MUST be always provided to increase the security, aside the iat, exp ...\r\n\r\niat and exp alone cannot prevent that the same encrypted nonce would be provided if two concurrent requests happens in the same time",
       "createdAt": "2023-11-25T23:36:46Z",
-      "updatedAt": "2024-01-24T20:01:06Z",
-      "closedAt": null,
+      "updatedAt": "2024-04-18T13:37:05Z",
+      "closedAt": "2024-04-18T13:37:05Z",
       "comments": []
     },
     {
@@ -156,7 +156,7 @@
       "comments": [
         {
           "author": "millenc",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "> we can only say that nonce is issued by AS while jti by client, but against the replay attacks a shared storage between the nodes MUST always be provided.\r\n\r\nIf this holds true (it SHOULD), why would we need to obtain the nonce by encrypting some payload? The nonce may very well be a random unique opaque value that the Authorization Server stores at least until it's validity time expires. Every time the Authorization Server \"sees\" a nonce (included on any request) it MUST retrieve it from storage and mark it as \"used\" so subsequent requests can't include that same nonce.\r\n\r\nIf the nonce can't be found on storage it means it wasn't originally minted by the server or it has expired and a `nonce_required` error MUST be returned to the client. If the server wants the nonce to NOT be an opaque string it's fine to do so (this SHOULD be an implementation detail). Similar to how `access_token`s on OAuth2.0 are meant to be opaque but there also exists a [JWT profile](https://datatracker.ietf.org/doc/html/rfc9068) for them.\r\n\r\nIf this is the case, the spec MAY be simplified by removing the requirements related to encryption and the non-normative examples of nonce payloads.",
           "createdAt": "2024-04-17T16:04:56Z",
           "updatedAt": "2024-04-17T16:04:56Z"
@@ -398,15 +398,15 @@
       "id": "I_kwDOKus-lM6GBe-u",
       "title": "Uniqueness of nonces of non-normative examples",
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/22",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "millenc",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Maybe this is a nitpick but on section [8. Non-normative Examples of a Nonce Payload](https://www.ietf.org/archive/id/draft-demarco-oauth-nonce-endpoint-00.html#name-non-normative-examples-of-a) the following nonce payload is shown as example:\r\n\r\n```json\r\n{\r\n  \"iss\": \"https://server.example.org\",\r\n  \"iat\": 1615908701,\r\n  \"exp\": 1615995101,\r\n  \"source_endpoint\": \"https://server.example.org/nonce-endpoint\",\r\n  \"aud\": [\r\n    \"https://service.example.com/endpoint\",\r\n    \"https://another.example.com/cb\"\r\n  ]\r\n}\r\n```\r\n\r\nIf an Authorization Server encrypts a payload such as this to obtain a nonce it could end up generating non-unique values if multiple requests are served at the same time (second). The only claims in this JSON object that are subject to change are `iat` and `exp`, which are defined as [NumericDate](https://www.rfc-editor.org/rfc/rfc7519#section-2) (A JSON numeric value representing the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time, ignoring leap seconds.).\r\n\r\nSince uniqueness is a hard requirement for nonces to fulfill their intended purpose, I think it would be best if this non-normative example includes some actual random value (such as the `jti` claim with a UUID for example).",
       "createdAt": "2024-04-17T15:09:41Z",
-      "updatedAt": "2024-04-17T18:17:05Z",
-      "closedAt": null,
+      "updatedAt": "2024-04-18T13:37:05Z",
+      "closedAt": "2024-04-18T13:37:05Z",
       "comments": [
         {
           "author": "peppelinux",
@@ -414,6 +414,13 @@
           "body": "I agree with you, therefore the `jti` claim should be included in the payload.\r\n\r\nthis issue is duplicate with https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6, however I appreciate your analysis.\r\n\r\nI'll add this change before the end of this weekend.\r\n\r\nat the same time, if you want to propose a PR, I would be glad to review it and add you as formal contributor of this brand new specs\r\n\r\n",
           "createdAt": "2024-04-17T18:17:05Z",
           "updatedAt": "2024-04-17T18:17:05Z"
+        },
+        {
+          "author": "millenc",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> this issue is duplicate with https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6, however I appreciate your analysis.\r\n\r\nSorry, my bad. I did a quick review on open issues but that one somehow slipped by. It's fine by me if we close this issue and continue the discussion on that one instead.\r\n\r\n> at the same time, if you want to propose a PR, I would be glad to review it and add you as formal contributor of this brand new specs\r\n\r\nI've created a PR:\r\n\r\nhttps://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/23\r\n\r\nLet me know what you think.",
+          "createdAt": "2024-04-18T07:21:59Z",
+          "updatedAt": "2024-04-18T07:21:59Z"
         }
       ]
     }
@@ -1445,6 +1452,135 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOKus-lM5tArz_",
+      "title": "fix: add requirement on Nonce payload to contain an actual random value",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/23",
+      "state": "MERGED",
+      "author": "millenc",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This PR addresses issues: #6 and #22 (duplicated).\r\n\r\nChanges introduced by this PR:\r\n\r\n* The non-normative Nonce payload example now includes a `jti` claim and a disclaimer stating that it MUST always contain a random unique value\r\n* [RFC4086](https://datatracker.ietf.org/doc/html/rfc4086) has been added to the normative references section\r\n* Some minor fixes on keyword usage\r\n\r\n",
+      "createdAt": "2024-04-18T07:19:08Z",
+      "updatedAt": "2024-04-18T13:37:04Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "d9e165028a87afeaa61982808c154ee511861c9c",
+      "headRepository": "millenc/draft-demarco-oauth-nonce-endpoint",
+      "headRefName": "main",
+      "headRefOid": "90a469339a23458a5f746d47628d3fae5e45d060",
+      "closedAt": "2024-04-18T13:37:04Z",
+      "mergedAt": "2024-04-18T13:37:04Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "2a9cf9081edd2e02d5afa2a8cb33bcdf4ee6a6a1"
+      },
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "I also would suggest (I can do it later on anyway) to change the text `1. **Generation**: Nonces are generated by the server, while `jti` is generated by the Client.` in the section nonce vs. jti, since this seems quite false\r\n\r\nthis is not related to your PR but to the harmonization we want with your PR",
+          "createdAt": "2024-04-18T07:23:27Z",
+          "updatedAt": "2024-04-18T07:23:27Z"
+        },
+        {
+          "author": "millenc",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> I also would suggest (I can do it later on anyway) to change the text `1. **Generation**: Nonces are generated by the server, while `jti` is generated by the Client.` in the section nonce vs. jti, since this seems quite false\r\n> \r\n> this is not related to your PR but to the harmonization we want with your PR\r\n\r\nAgreed. It would be more accurate to state that the `jti` claim is generated by the token issuer, whomever that may be (typically the server but not always).",
+          "createdAt": "2024-04-18T07:26:48Z",
+          "updatedAt": "2024-04-18T07:26:48Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM53vVpm",
+          "commit": {
+            "abbreviatedOid": "8574f73"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2024-04-18T13:24:12Z",
+          "updatedAt": "2024-04-18T13:24:12Z",
+          "comments": [
+            {
+              "originalPosition": 29,
+              "body": "```suggestion\r\nPlease note that the values represented in the previous examples are informative.\r\n```",
+              "createdAt": "2024-04-18T13:24:12Z",
+              "updatedAt": "2024-04-18T13:24:12Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM53vdyZ",
+          "commit": {
+            "abbreviatedOid": "90a4693"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-04-18T13:36:35Z",
+          "updatedAt": "2024-04-18T13:36:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOKus-lM5tDXVm",
+      "title": "Acknowledgments Section",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/24",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "@millenc ^",
+      "createdAt": "2024-04-18T13:40:15Z",
+      "updatedAt": "2024-04-18T13:41:47Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "2a9cf9081edd2e02d5afa2a8cb33bcdf4ee6a6a1",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "headRefName": "ack",
+      "headRefOid": "d7542222cc0225539d66957656af436138e21abe",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 25,
+      "id": "PR_kwDOKus-lM5tGiVB",
+      "title": "fix: no strict OAuth 2.0 AS depedency and more neutrality with jti comparison",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/25",
+      "state": "OPEN",
+      "author": "peppelinux",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-04-18T22:04:33Z",
+      "updatedAt": "2024-04-18T22:04:40Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "2a9cf9081edd2e02d5afa2a8cb33bcdf4ee6a6a1",
+      "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "headRefName": "neutrality",
+      "headRefOid": "574ee9d1fddc4198539519720aaacb174a10c885",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
