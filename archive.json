@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-05-30T00:30:20.040990+00:00",
+  "timestamp": "2024-06-02T00:33:12.452410+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -421,6 +421,51 @@
           "body": "> this issue is duplicate with https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/6, however I appreciate your analysis.\r\n\r\nSorry, my bad. I did a quick review on open issues but that one somehow slipped by. It's fine by me if we close this issue and continue the discussion on that one instead.\r\n\r\n> at the same time, if you want to propose a PR, I would be glad to review it and add you as formal contributor of this brand new specs\r\n\r\nI've created a PR:\r\n\r\nhttps://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/23\r\n\r\nLet me know what you think.",
           "createdAt": "2024-04-18T07:21:59Z",
           "updatedAt": "2024-04-18T07:21:59Z"
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "id": "I_kwDOKus-lM6Ktkk-",
+      "title": "Explain motivation for a nonce endpoint",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/26",
+      "state": "OPEN",
+      "author": "randomstuff",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "After reading the document, it's not clear what is the use of this nonce and when and why you would need to request a nonce from the nonce endpoint.\r\n\r\nThe abstract references [RFC6749](https://www.rfc-editor.org/rfc/rfc6749) but the only mention of a nonce in RFC6749 is a [non-normative example](https://www.rfc-editor.org/rfc/rfc6749#section-7.1) about an expired [OAuth-HTTP-MAC](https://datatracker.ietf.org/doc/draft-ietf-oauth-v2-http-mac/) draft.\r\n",
+      "createdAt": "2024-05-31T08:02:51Z",
+      "updatedAt": "2024-05-31T13:53:07Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "This draft proposes creating a general-purpose endpoint to issue nonces for various purposes and audiences. This endpoint could be accessible to both public users and internal domains of the AS or other entities. This decision depends on how the nonce endpoints are integrated into the IT infrastructure.",
+          "createdAt": "2024-05-31T10:02:55Z",
+          "updatedAt": "2024-05-31T10:02:55Z"
+        },
+        {
+          "author": "randomstuff",
+          "authorAssociation": "NONE",
+          "body": "Yes, but maybe an example of a precise use case would make it clear. Why wouldn't I use a locally generated 160 bit random number using a secure random source? Why would the AS need to encrypt (sign? MAC?) the nonce instead of generating a 160 bit random number using a secure random source? (Why is it not a `/dev/urandom` as a service ?) If the AS is encrypted (signed? MACed?) does anyone need to decrypt (check the signature? check this MAC?) and how?",
+          "createdAt": "2024-05-31T11:49:45Z",
+          "updatedAt": "2024-05-31T13:53:07Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "good points that produces good clarifications, thank you. I put some sparse notes to keep the conversation going, therefore we can decide if something interesting can be further expandend and included in the current specs\r\n\r\n- locally generated is not a microservice resource, the purpose of this specification is to create a general purpose endpoint\r\n- encrypted to allow the AS to inspect a payload and recognize if it is the issuer. There can be also audiences and scopes within the payload, making the nonce artifact more powerful for interop purposes\r\n- the one that decrypt the nonce is the one that shares the same private key of the nonce issuer, therefore these two entities/endpoints should be hosted in the same domain (and/or be part of the same cluster). There are cases that using appropriate audiences and scopes within the nonce payload we are able to prevent replay attacks using a local storage, without a shared  storage between many microservice. This scales better because makes a stateless layer for the nonce validation and reduces the burden of the shared storage\r\n\r\nthe purpose of this specification is to have conversation like this one and also evaluate the differences between local/shared storage, stateless/statefull approces and `jti` vs the nonce in general\r\n",
+          "createdAt": "2024-05-31T13:19:54Z",
+          "updatedAt": "2024-05-31T13:19:54Z"
+        },
+        {
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "body": "another example about the scope of this individual draft is to map the intrinsic value of the nonce, and all the assumptions we have/had about it\r\n\r\nin particular, there are some evidence around the specs, that show that the nonce could be used more than once.\r\n\r\nFrom this evidence I'm considering the existence of the \"Nonce Paradox\" that demonstrates that the nonce, that per definition means \"No more than Once\" would became a **Monce** establishing that it could be used \"More than once\".\r\n\r\n\"The Monce Paradox\", therefore, should be further explored in IETF, OpenID foundation, ISO and any other standardization body, where the constraints of uniqueness of the nonce appears to be broken.\r\n\r\nhere, for instance, I want to report the definition of nonce taken from the NIST's glossary\r\nhttps://csrc.nist.gov/glossary/term/nonce\r\n\r\n## Specifications Defining Or Referencing Nonces\r\n\r\n- RFC 6749 (The OAuth 2.0 Authorization Framework)\r\n- https://datatracker.ietf.org/doc/html/rfc6704\r\n- https://datatracker.ietf.org/doc/rfc8954/\r\n- https://datatracker.ietf.org/doc/rfc3310/ (with some limitations)\r\n- rfc3261\r\n\r\n## Specifications Apparently Defining Monces\r\n- OpenID4VCI, see: https://github.com/openid/OpenID4VCI/pull/325#issuecomment-2133357644",
+          "createdAt": "2024-05-31T13:37:20Z",
+          "updatedAt": "2024-05-31T13:37:20Z"
         }
       ]
     }
