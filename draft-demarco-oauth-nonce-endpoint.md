@@ -253,4 +253,10 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+- Marina Adomeit
+- Francesco Grauso
+- Francesco Marino
+- Mike Jones
+- Mikel Pintor
+- Giada Sciarretta
+- Amir Sharif
