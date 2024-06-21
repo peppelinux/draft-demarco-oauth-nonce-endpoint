@@ -15,17 +15,17 @@
 <meta content="draft-demarco-oauth-nonce-endpoint-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.21.0
-    Python 3.11.9
+    Python 3.12.3
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
     intervaltree 3.1.0
-    Jinja2 3.1.2
-    lxml 4.9.3
-    platformdirs 4.2.0
+    Jinja2 3.1.4
+    lxml 4.9.4
+    platformdirs 4.2.2
     pycountry 22.3.5
     PyYAML 6.0.1
     requests 2.31.0
-    setuptools 68.2.2
+    setuptools 69.5.1
     six 1.16.0
     wcwidth 0.2.13
 -->
@@ -1026,11 +1026,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Nonce Endpoint</td>
-<td class="right">April 2024</td>
+<td class="right">June 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Marco &amp; Steele</td>
-<td class="center">Expires 20 October 2024</td>
+<td class="center">Expires 23 December 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1043,12 +1043,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-demarco-oauth-nonce-endpoint-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-04-18" class="published">18 April 2024</time>
+<time datetime="2024-06-21" class="published">21 June 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-10-20">20 October 2024</time></dd>
+<dd class="expires"><time datetime="2024-12-23">23 December 2024</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1097,7 +1097,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 20 October 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 23 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1227,7 +1227,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <dt id="section-3-1.3">
 <strong>Nonce Issuer</strong>:</dt>
         <dd style="margin-left: 1.5em" id="section-3-1.4">
-          <p id="section-3-1.4.1">The entity that generates and provides the Nonce. The Nonce Issuer would typically be the Authorization Server.<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
+          <p id="section-3-1.4.1">The entity that generates and provides the Nonce.<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-3-1.5">
@@ -1320,7 +1320,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
           <h4 id="name-example-metadata">
 <a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-example-metadata" class="section-name selfRef">Example Metadata</a>
           </h4>
-<p id="section-5.1.1-1">Below is an example of how the Authorization Server Metadata might include the <code>nonce_endpoint</code>:<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-5.1.1-1">Below is an example of how an OAuth 2.0 Authorization Server Metadata might include the <code>nonce_endpoint</code>:<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.1.1-2">
 <pre>
 {
@@ -1396,10 +1396,10 @@ Content-Type: application/json
       <h2 id="name-nonce-endpoint-discovery">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-nonce-endpoint-discovery" class="section-name selfRef">Nonce Endpoint Discovery</a>
       </h2>
-<p id="section-8-1">When an Authorization Server requires the use of a Nonce in the request for a specific resource and the Client does not provide it in its request,
-the Authorization Server <span class="bcp14">MUST</span> return an HTTP response with the HTTP status code <code>400</code> and an <code>error</code> field with the value set to <code>"nonce_required"</code>.<a href="#section-8-1" class="pilcrow">¶</a></p>
-<p id="section-8-2">This response <span class="bcp14">MUST</span> also contain the <code>Nonce-Endpoint-URI</code> HTTP header, with the value set to the URL corresponding to the Nonce Endpoint, where the Client <span class="bcp14">SHOULD</span> request and fetch a new Nonce. Once the Nonce is received, the Client <span class="bcp14">MAY</span> renew the request to the Authorization Server, including the obtained Nonce.<a href="#section-8-2" class="pilcrow">¶</a></p>
-<p id="section-8-3">Below is a non-normative example of an error response issued by an Authorization Server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where the Nonce should be requested:<a href="#section-8-3" class="pilcrow">¶</a></p>
+<p id="section-8-1">When a server requires the use of a Nonce in the request for a specific resource and the Client does not provide it in its request,
+the server <span class="bcp14">MUST</span> return an HTTP response with the HTTP status code <code>400</code> and an <code>error</code> field with the value set to <code>"nonce_required"</code>.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-2">This response <span class="bcp14">MUST</span> also contain the <code>Nonce-Endpoint-URI</code> HTTP header, with the value set to the URL corresponding to the Nonce Endpoint, where the Client <span class="bcp14">SHOULD</span> request and fetch a new Nonce. Once the Nonce is received, the Client <span class="bcp14">MAY</span> renew the request to the server, including the obtained Nonce.<a href="#section-8-2" class="pilcrow">¶</a></p>
+<p id="section-8-3">Below is a non-normative example of an error response issued by an server that requires the Nonce in the Client request, the response informs the Client about the Nonce Endpoint where the Nonce should be requested:<a href="#section-8-3" class="pilcrow">¶</a></p>
 <div class="lang-http sourcecode" id="section-8-4">
 <pre>
 HTTP/1.1 400 Bad Request
@@ -1408,11 +1408,11 @@ Nonce-Endpoint-URI: https://server.example.org/nonce-endpoint
 {
   "error": "nonce_required",
   "error_description":
-    "Authorization server requires the nonce in the request"
+    "Server requires the nonce in the request"
 }
 </pre><a href="#section-8-4" class="pilcrow">¶</a>
 </div>
-<p id="section-8-5">In cases where, for some reasons, a correctly issued Nonce can no longer be considered valid by the Authorization Server that receives it, the Authorization Server <span class="bcp14">MUST</span> return the generic error <code>"nonce_required"</code> reporting the same description as <code>"error_description"</code>, as if the Nonce had not been received. The cases when an issued Nonce is considered no longer valid <span class="bcp14">MAY</span> be caused by the rotation of the encryption keys, its expiration or other specific conditions internal to an implementation.<a href="#section-8-5" class="pilcrow">¶</a></p>
+<p id="section-8-5">In cases where, for some reasons, a correctly issued Nonce can no longer be considered valid by the server that receives it, the server <span class="bcp14">MUST</span> return the generic error <code>"nonce_required"</code> reporting the same description as <code>"error_description"</code>, as if the Nonce had not been received. The cases when an issued Nonce is considered no longer valid <span class="bcp14">MAY</span> be caused by the rotation of the encryption keys, its expiration or other specific conditions internal to an implementation.<a href="#section-8-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="non-normative-examples-of-a-nonce-payload">
@@ -1481,16 +1481,13 @@ Nonce-Endpoint-URI: https://server.example.org/nonce-endpoint
 <p id="section-11-3">The main differences between the use of the <code>jti</code> and the Nonces can be summarized as follows:<a href="#section-11-3" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-11-4">
 <li id="section-11-4.1">
-          <p id="section-11-4.1.1"><strong>Generation</strong>: Nonces are generated by the server, while <code>jti</code> is generated by the Client.<a href="#section-11-4.1.1" class="pilcrow">¶</a></p>
+          <p id="section-11-4.1.1"><strong>Generation</strong>: Nonces and jti can be are generated both by the server and the client.<a href="#section-11-4.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-11-4.2">
-          <p id="section-11-4.2.1"><strong>Storage</strong>: Nonces can be self-authenticating and self-contained and therefore need not be stored. A common way to achieve this is for the Nonce to contain content encrypted to the Authorization Server that creates it. On the other hand, checking <code>jti</code> properly definitely requires a store that is shared across all domains that the associated JWT can be presented in.<a href="#section-11-4.2.1" class="pilcrow">¶</a></p>
+          <p id="section-11-4.2.1"><strong>Lifetime</strong>: The life span difference between a Nonce and a <code>jti</code> is significant. Nonces are kept just until the Client responds, which happens practically immediately after they are obtained, resulting in a very short lifespan. A <code>jti</code>, on the other hand, must be stored until the expiration window of its associated JWT expires, which is a substantially longer length than that of a Nonce.<a href="#section-11-4.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-11-4.3">
-          <p id="section-11-4.3.1"><strong>Lifetime</strong>: The life span difference between a Nonce and a <code>jti</code> is significant. Nonces are kept just until the Client responds, which happens practically immediately after they are obtained, resulting in a very short lifespan. A <code>jti</code>, on the other hand, must be stored until the expiration window of its associated JWT expires, which is a substantially longer length than that of a Nonce.<a href="#section-11-4.3.1" class="pilcrow">¶</a></p>
-</li>
-        <li id="section-11-4.4">
-          <p id="section-11-4.4.1"><strong>Security</strong>: Nonces prevent replay attacks by ensuring that the proof of possession is fresh. On the other hand, <code>jti</code> does not guarantee freshness and using client-generated timestamps has problems, even for non-attacking Clients (e.g. devices with incorrect time-zones or daylight saving settings).<a href="#section-11-4.4.1" class="pilcrow">¶</a></p>
+          <p id="section-11-4.3.1"><strong>Freshness</strong>: Nonces prevent replay attacks by ensuring that the proof of possession is fresh. On the other hand, <code>jti</code> does not guarantee freshness and using client-generated timestamps has problems, even for non-attacking Clients (e.g. devices with incorrect time-zones or daylight saving settings).<a href="#section-11-4.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
 </section>
