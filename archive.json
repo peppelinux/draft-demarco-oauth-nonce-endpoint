@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-06-20T00:30:19.206461+00:00",
+  "timestamp": "2024-06-23T00:33:54.752784+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -1606,26 +1606,42 @@
       "id": "PR_kwDOKus-lM5tGiVB",
       "title": "fix: no strict OAuth 2.0 AS depedency and more neutrality with jti comparison",
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/25",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "peppelinux",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-04-18T22:04:33Z",
-      "updatedAt": "2024-04-18T22:04:40Z",
+      "updatedAt": "2024-06-21T23:21:20Z",
       "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "2a9cf9081edd2e02d5afa2a8cb33bcdf4ee6a6a1",
       "headRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "headRefName": "neutrality",
       "headRefOid": "574ee9d1fddc4198539519720aaacb174a10c885",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-06-21T23:21:20Z",
+      "mergedAt": "2024-06-21T23:21:20Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "9fea1632dd8b99c67b7a1cc11813f9903c8b2197"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM5_J_qw",
+          "commit": {
+            "abbreviatedOid": "574ee9d"
+          },
+          "author": "OR13",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-06-21T19:50:06Z",
+          "updatedAt": "2024-06-21T19:50:06Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
