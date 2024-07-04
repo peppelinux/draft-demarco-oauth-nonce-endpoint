@@ -119,6 +119,33 @@ Below is an example of how an OAuth 2.0 Authorization Server Metadata might incl
 }
 ~~~~
 
+## Nonce Issuer Metadata
+
+The Nonce Issuers that uses the nonce endpoint MUST include in their entity metadata the parameters:
+
+ - **nonce_endpoint**: REQUIRED. This MUST be an HTTPS URL specifying the endpoint where clients can request a Nonce. This parameter is crucial for enabling clients to obtain the necessary Nonce to prevent replay attacks and ensure secure communication.
+
+Below a non-normative example of Nonce Issuer Metadata :
+
+~~~~
+{
+  "jwks": {
+    "keys": [
+      {
+        "kty": "RSA",
+        "use": "sig",
+        "kid": "1b94c",
+        "n": "0vx7agoebGcQSuuPiLJXZptN24rFrHpMu42i5GSkA...",
+        "e": "AQAB"
+      }
+    ]
+  },
+  "token_endpoint": "https://walletprovider.example.com/token",
+  "nonce_endpoint": "https://walletprovider.example.com/nonce",
+...
+}
+~~~~
+
 # Nonce Request
 
 When a Client needs a Nonce, it sends an HTTP GET request to the Nonce Endpoint.
