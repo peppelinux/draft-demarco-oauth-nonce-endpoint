@@ -123,7 +123,7 @@ Below is an example of how an OAuth 2.0 Authorization Server Metadata might incl
 
 The Nonce Issuers that uses the Nonce endpoint MUST include in their entity metadata the following parameter:
 
- - **nonce_endpoint**: REQUIRED. This MUST be an HTTPS URL specifying the endpoint where clients can request a Nonce. This parameter is crucial for enabling clients to obtain the necessary Nonce to prevent replay attacks and ensure secure communication.
+ - **nonce_endpoint**: REQUIRED. This MUST be an HTTPS URL specifying the endpoint where clients can request a Nonce.
 
 Below a non-normative example of Nonce Issuer Metadata :
 
