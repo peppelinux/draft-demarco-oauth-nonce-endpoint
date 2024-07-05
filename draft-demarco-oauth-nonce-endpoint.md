@@ -129,17 +129,9 @@ Below a non-normative example of Nonce Issuer Metadata :
 
 ~~~~
 {
-  "jwks": {
-    "keys": [
-      {
-        "kty": "RSA",
-        "use": "sig",
-        "kid": "1b94c",
-        "n": "0vx7agoebGcQSuuPiLJXZptN24rFrHpMu42i5GSkA...",
-        "e": "AQAB"
-      }
-    ]
-  },
+  "issuer": "https://walletprovider.example.com",
+  "authorization_endpoint": "https://walletprovider.example.com/authorize",
+  "response_types_supported": ["code", "token"]
   "token_endpoint": "https://walletprovider.example.com/token",
   "nonce_endpoint": "https://walletprovider.example.com/nonce",
 ...
