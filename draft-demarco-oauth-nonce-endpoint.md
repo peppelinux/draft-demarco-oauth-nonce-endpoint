@@ -105,6 +105,8 @@ Clients that utilize the Nonce Endpoint SHOULD first retrieve the Server's metad
 
 The OAuth 2.0 Authorization Server MUST include the `nonce_endpoint` metadata in its OAuth 2.0 Authorization Server Metadata if it supports the Nonce Endpoint functionality described in this specification.
 
+**Note:** The security and configuration of the ``nonce_endpoint`` can vary. While a standard configuration might not require client authentication, it is possible to protect this endpoint to enhance the overall security of the system.
+
 ### Example Metadata
 
 Below is an example of how an OAuth 2.0 Authorization Server Metadata might include the `nonce_endpoint`:
@@ -209,6 +211,20 @@ Below are provided some non-normative examples, describing how a decrypted and J
 Please note that the values represented in the previous examples are informative.
 
 In any case, the payload MUST include some unique value (`"jti"` on the example above), typically generated using a pseudo-random number generator with sufficient entropy [RFC4086], to ensure that the encrypted digest (the actual Nonce) is also unique.
+
+# Nonce Payload Claims
+
+The body of Nonce Payload contains:
+
+| Claim             | Description                                                                                     | Reference                       |
+|-------------------|---------------------------------------------------------------------------------------------|---------------------------------|
+| `jti`             | A unique identifier for the token, used to prevent token reuse.                     | [RFC 7519, Section 4.1.7](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.7) |
+| `iss`             | The entity that issued the token.                   | [RFC 7519, Section 4.1.1](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1) |
+| `iat`             | The date and time the token was issued. | [RFC 7519, Section 4.1.6](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.6) |
+| `exp`             | The date and time the token expires | [RFC 7519, Section 4.1.4](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.4) |
+| `source_endpoint` | The endpoint of the server that generated the nonce used in the token.      |           |
+| `aud`             | A list of intended recipients of the token, i.e., the services that can accept it. | [RFC 7519, Section 4.1.3](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.3) |
+
 
 # Security Considerations
 
