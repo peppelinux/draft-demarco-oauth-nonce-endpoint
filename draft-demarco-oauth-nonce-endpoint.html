@@ -10,11 +10,11 @@
 <meta content="
        This document defines a Nonce Endpoint and details how a Server generates and issues opaque Nonces and how a client can learn about this endpoint to obtain the Nonce. 
     " name="description">
-<meta content="xml2rfc 3.21.0" name="generator">
+<meta content="xml2rfc 3.22.0" name="generator">
 <meta content="OAuth 2.0" name="keyword">
 <meta content="draft-demarco-oauth-nonce-endpoint-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.21.0
+  xml2rfc 3.22.0
     Python 3.12.3
     ConfigArgParse 1.7
     google-i18n-address 3.1.0
@@ -24,9 +24,8 @@
     platformdirs 4.2.2
     pycountry 22.3.5
     PyYAML 6.0.1
-    requests 2.31.0
+    requests 2.32.3
     setuptools 69.5.1
-    six 1.16.0
     wcwidth 0.2.13
 -->
 <link href="draft-demarco-oauth-nonce-endpoint.xml" rel="alternate" type="application/rfc+xml">
@@ -1026,11 +1025,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Nonce Endpoint</td>
-<td class="right">June 2024</td>
+<td class="right">July 2024</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Marco &amp; Steele</td>
-<td class="center">Expires 23 December 2024</td>
+<td class="center">Expires 10 January 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1043,12 +1042,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-demarco-oauth-nonce-endpoint-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-06-21" class="published">21 June 2024</time>
+<time datetime="2024-07-09" class="published">9 July 2024</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-12-23">23 December 2024</time></dd>
+<dd class="expires"><time datetime="2025-01-10">10 January 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1097,7 +1096,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 December 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 10 January 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1148,6 +1147,9 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="auto internal xref">5.1.1</a>.  <a href="#name-example-metadata" class="internal xref">Example Metadata</a></p>
 </li>
                 </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-nonce-issuer-metadata" class="internal xref">Nonce Issuer Metadata</a></p>
 </li>
             </ul>
 </li>
@@ -1333,6 +1335,32 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 </pre><a href="#section-5.1.1-2" class="pilcrow">¶</a>
 </div>
 </section>
+</div>
+</section>
+</div>
+<div id="nonce-issuer-metadata">
+<section id="section-5.2">
+        <h3 id="name-nonce-issuer-metadata">
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-nonce-issuer-metadata" class="section-name selfRef">Nonce Issuer Metadata</a>
+        </h3>
+<p id="section-5.2-1">The Nonce Issuers that uses the Nonce endpoint <span class="bcp14">MUST</span> include in their entity metadata the following parameter:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-5.2-2.1">
+            <p id="section-5.2-2.1.1"><strong>nonce_endpoint</strong>: <span class="bcp14">REQUIRED</span>. This <span class="bcp14">MUST</span> be an HTTPS URL specifying the endpoint where clients can request a Nonce.<a href="#section-5.2-2.1.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-5.2-3">Below a non-normative example of Nonce Issuer Metadata :<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-5.2-4">
+<pre>
+{
+  "issuer": "https://walletprovider.example.com",
+  "authorization_endpoint": "https://walletprovider.example.com/authorize",
+  "response_types_supported": ["code", "token"]
+  "token_endpoint": "https://walletprovider.example.com/token",
+  "nonce_endpoint": "https://walletprovider.example.com/nonce",
+...
+}
+</pre><a href="#section-5.2-4" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
