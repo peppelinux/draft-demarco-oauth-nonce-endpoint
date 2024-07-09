@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-07T00:35:04.508808+00:00",
+  "timestamp": "2024-07-09T00:31:42.930950+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -468,6 +468,22 @@
           "updatedAt": "2024-05-31T13:37:20Z"
         }
       ]
+    },
+    {
+      "number": 28,
+      "id": "I_kwDOKus-lM6Owxlf",
+      "title": "Clarification about nonce",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/28",
+      "state": "OPEN",
+      "author": "cmarco0",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "### Explaination of Nonce value\r\n**Nonce** can be any value, and its encrypted payload with an expiration time prevents storing and reusing expired nonces.\r\n\r\nThe security and configuration of the nonce_endpoint can vary. While a standard configuration might not require client authentication, it is possible to protect this endpoint to enhance the overall security of the system.\r\n\r\n### Explaination of Nonce Payload claims\r\n\r\n - **source_endpoint** claim specifies which specific endpoint (or URL) within the federation created or issued the nonce.\r\n - **aud** claim refers to the intended recipient or the endpoint that is supposed to use or process the nonce.",
+      "createdAt": "2024-07-08T09:39:52Z",
+      "updatedAt": "2024-07-08T09:39:52Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -1729,6 +1745,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOKus-lM50rB2Y",
+      "title": "Add clarification about nonce payload and nonce endpoint security",
+      "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/29",
+      "state": "OPEN",
+      "author": "cmarco0",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "this PR close #28 ",
+      "createdAt": "2024-07-08T10:04:39Z",
+      "updatedAt": "2024-07-08T10:04:39Z",
+      "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
+      "baseRefName": "main",
+      "baseRefOid": "9fea1632dd8b99c67b7a1cc11813f9903c8b2197",
+      "headRepository": "cmarco0/draft-demarco-oauth-nonce-endpoint-fork",
+      "headRefName": "cmarco-clarifyNonce",
+      "headRefOid": "4833b196755aef828e83c0c4f5958ef7871de21f",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
