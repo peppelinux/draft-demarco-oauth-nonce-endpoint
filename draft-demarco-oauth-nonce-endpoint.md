@@ -210,11 +210,13 @@ Below are provided some non-normative examples, describing how a decrypted and J
 
 Please note that the values represented in the previous examples are informative.
 
+**Note:** The example provided is non-normative and is provided for illustrative purposes only. The example is intended to demonstrate potential use cases and do not prescribe any specific implementation requirements.
+
 In any case, the payload MUST include some unique value (`"jti"` on the example above), typically generated using a pseudo-random number generator with sufficient entropy [RFC4086], to ensure that the encrypted digest (the actual Nonce) is also unique.
 
 # Nonce Payload Claims
 
-The body of Nonce Payload contains:
+In the table below, the claims in the non-normative example above are explained:
 
 | Claim             | Description                                                                                     | Reference                       |
 |-------------------|---------------------------------------------------------------------------------------------|---------------------------------|
