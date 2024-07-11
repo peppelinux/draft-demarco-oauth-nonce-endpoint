@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-07-09T00:31:42.930950+00:00",
+  "timestamp": "2024-07-11T00:32:29.398135+00:00",
   "repo": "peppelinux/draft-demarco-oauth-nonce-endpoint",
   "labels": [
     {
@@ -476,7 +476,7 @@
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/issues/28",
       "state": "OPEN",
       "author": "cmarco0",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "### Explaination of Nonce value\r\n**Nonce** can be any value, and its encrypted payload with an expiration time prevents storing and reusing expired nonces.\r\n\r\nThe security and configuration of the nonce_endpoint can vary. While a standard configuration might not require client authentication, it is possible to protect this endpoint to enhance the overall security of the system.\r\n\r\n### Explaination of Nonce Payload claims\r\n\r\n - **source_endpoint** claim specifies which specific endpoint (or URL) within the federation created or issued the nonce.\r\n - **aud** claim refers to the intended recipient or the endpoint that is supposed to use or process the nonce.",
@@ -1664,24 +1664,26 @@
       "id": "PR_kwDOKus-lM50akzq",
       "title": "Add nonce endpoint issuer metadata",
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/27",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "cmarco0",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "This PR is tied to this issue https://github.com/italia/eudi-wallet-it-docs/issues/345",
       "createdAt": "2024-07-04T08:34:53Z",
-      "updatedAt": "2024-07-05T14:54:41Z",
+      "updatedAt": "2024-07-09T10:22:18Z",
       "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "9fea1632dd8b99c67b7a1cc11813f9903c8b2197",
       "headRepository": "cmarco0/draft-demarco-oauth-nonce-endpoint-fork",
       "headRefName": "cmarco0-nonceEndpointParameter",
       "headRefOid": "caef9242d1bb37527b431a6eeef93c4900f34dbb",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2024-07-09T10:22:18Z",
+      "mergedAt": "2024-07-09T10:22:18Z",
+      "mergedBy": "peppelinux",
+      "mergeCommit": {
+        "oid": "79005c07e49c91005dd9a940c98ea6be86b7d651"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1743,6 +1745,19 @@
               "updatedAt": "2024-07-05T11:53:24Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOKus-lM6BF5Vi",
+          "commit": {
+            "abbreviatedOid": "caef924"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2024-07-09T10:18:12Z",
+          "updatedAt": "2024-07-09T10:18:12Z",
+          "comments": []
         }
       ]
     },
@@ -1753,24 +1768,45 @@
       "url": "https://github.com/peppelinux/draft-demarco-oauth-nonce-endpoint/pull/29",
       "state": "OPEN",
       "author": "cmarco0",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "this PR close #28 ",
       "createdAt": "2024-07-08T10:04:39Z",
-      "updatedAt": "2024-07-08T10:04:39Z",
+      "updatedAt": "2024-07-10T09:03:01Z",
       "baseRepository": "peppelinux/draft-demarco-oauth-nonce-endpoint",
       "baseRefName": "main",
       "baseRefOid": "9fea1632dd8b99c67b7a1cc11813f9903c8b2197",
       "headRepository": "cmarco0/draft-demarco-oauth-nonce-endpoint-fork",
       "headRefName": "cmarco-clarifyNonce",
-      "headRefOid": "4833b196755aef828e83c0c4f5958ef7871de21f",
+      "headRefOid": "7fbd2490b7216a93ec2881b1ff8ecb47344d86a1",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOKus-lM6BF8_W",
+          "commit": {
+            "abbreviatedOid": "4833b19"
+          },
+          "author": "peppelinux",
+          "authorAssociation": "OWNER",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2024-07-09T10:23:21Z",
+          "updatedAt": "2024-07-09T10:23:24Z",
+          "comments": [
+            {
+              "originalPosition": 15,
+              "body": "it is not clear is this payload is normative or not\r\n\r\nI suppose that this is not normative and provided as an example in relation to specific use cases, that need to be clarified within this PR",
+              "createdAt": "2024-07-09T10:23:21Z",
+              "updatedAt": "2024-07-09T10:23:24Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
